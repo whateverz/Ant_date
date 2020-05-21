@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="theme_color_87a">#de000000</color>
+    <color name="theme_color_54a">#89000000</color>
+    <color name="theme_color_24a">#42000000</color>
+    <color name="theme_color">#00000000</color>
+
+    <color name="theme_color_press">#00000000</color>
+
+    <color name="divider">#ffe3e3e3</color>
+
+    <color name="colorPrimary">@color/theme_color</color>
+    <color name="colorPrimaryDark">@color/theme_color</color>
+    <color name="colorAccent">@color/theme_color</color>
+
+    <color name="default_bg">#fff5f5f5</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- 上拉下拉刷新颜色 -->
+    <color name="refresh_text_grey">#565656</color>
+    <color name="refresh_text_grey_deep">#353535</color>
+    <color name="refresh_text_grey_light">#757575</color>
+    <color name="wg_single_item_line">#ffd8d8d8</color>
+    <color name="wg_single_item_sub_title">#ff8a8a8a</color>
+    <color name="wg_actionbar_text">#ff323232</color>
+    <color name="new_text_network">#ff888888</color>
+    <color name="new_text_share_dlg">#ff3e3e3e</color>
+    <color name="bg_tab_line">#ffe2e2e2</color>
+    <color name="bg_blue">#ff00bbff</color>
+    <color name="bg_share_menu">#fff1f1f1</color>
+    <color name="bg_share_menu_p">#ffe8e8e8</color>
+    <color name="new_split_line">#ffd8d8d8</color>
+    <color name="black_reverse">#40ffffff</color>
+    <color name="new_text_actionbar">#ff323232</color>
+    <color name="btn_unenable">@color/black_24per</color>
+
+    <!-- 主题色橘红色 -->
+    <color name="theme_color_orange">#ffF55D45</color>
+    <!-- 点击效果的半透橘红色 -->
+    <color name="default_click_orange">#7dF55D45</color>
+    <!-- 默认背景色 -->
+
+    <color name="default_bg_color">#ffF5F5F5</color>
+    <!-- 默认背景色 稍微深色点 -->
+    <color name="default_bg_color_deep">#ffF0F0F0</color>
+    <!-- 点击效果的半透白色 -->
+    <color name="default_click_white">#7dffffff</color>
+    <!-- 点击效果的半透黑色 -->
+    <color name="default_click_black">#7d000000</color>
+    <!-- 点击效果的半透黑色54 -->
+    <color name="black_54per">#89000000</color>
+    <!-- 点击效果的半透黑色24 -->
+    <color name="black_24per">#3d000000</color>
+    <!-- 点击效果的半透黑色26 -->
+    <color name="black_26per">#42000000</color>
+    <!-- 点击效果的半透黑色12 -->
+    <color name="black_12per">#0C000000</color>
+    <!-- 点击效果的半透黑色12 -->
+    <color name="black_13per">#21000000</color>
+    <!-- 点击效果的半透黑色87 -->
+    <color name="black_87per">#de000000</color>
+    <!-- 点击效果的半透白色54 -->
+    <color name="white_54per">#89ffffff</color>
+    <!-- 点击效果的半透白色26 -->
+    <color name="white_24per">#42ffffff</color>
+    <!-- 点击效果的半透白色13 -->
+    <color name="white_13per">#21FFFFFF</color>
+    <!-- 点击效果的半透白色12 -->
+    <color name="white_12per">#0Cffffff</color>
+
+    <!-- 点击效果的半透白色87 -->
+    <color name="white_87per">#deffffff</color>
+
+
+    <color name="focus_color">#7f33b5e5</color>
+
+    <color name="category_tab_highlight_bg">#ffd43d3d</color>
+    <color name="category_tab_highlight_dark_bg">#fffafafa</color>
+    <color name="category_tab_text">#ff707070</color>
+    <color name="category_tab_text_dark">#fffafafa</color>
+    <color name="category_tab_highlight_text">#fffafafa</color>
+    <color name="category_tab_highlight_text_dark">#ffd43d3d</color>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="pickerview_timebtn_nor">#057dff</color>
+    <color name="pickerview_timebtn_pre">#c2daf5</color>
+    <color name="pickerview_bg_topbar">#f5f5f5</color>
+    <color name="pickerview_topbar_title">#000000</color>
+    <color name="pickerview_wheelview_textcolor_out">#a8a8a8</color>
+    <color name="pickerview_wheelview_textcolor_center">#2a2a2a</color>
+    <color name="pickerview_wheelview_textcolor_divider">#d5d5d5</color>
+    <!--覆盖颜色-->
+    <color name="bgColor_overlay">#60000000</color>
+
+    <color name="grey_light">#fff0f0f0</color>
+    <color name="grey">#fff0f0f0</color>
+    <color name="grey_deep">#ff505050</color>
+
+    <color name="green">#ff00ff00</color>
+    <color name="red">#ffff0000</color>
+
+</resources>

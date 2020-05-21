@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="WgActionBarBase">
+        <attr name="actionTitle" format="string" />
+        <attr name="actionImgLeft" format="reference" />
+        <attr name="actionTitleLeft" format="string" />
+        <attr name="actionImgRight" format="reference" />
+        <attr name="actionTitleRight" format="string" />
+        <attr name="actionTitleSize" format="dimension" />
+        <attr name="actionTitleColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SwipyRefreshLayout">
+        <attr name="direction">
+            <enum name="top" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="both" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="WgPagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="WgSettingBase">
+        <attr name="lineStatus" format="integer" />
+        <attr name="settingTitle" format="string" />
+        <attr name="detail" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="subTitle" format="string" />
+        <attr name="showInput" format="boolean" />
+        <attr name="showSwitch" format="boolean" />
+        <attr name="showNext" format="boolean" />
+        <attr name="imgLeft" format="reference" />
+        <attr name="imgCenter" format="reference" />
+        <attr name="imgRight" format="reference" />
+        <attr name="isPassword" format="boolean" />
+        <attr name="isInputBig" format="boolean" />
+        <attr name="isImgLeftBig" format="boolean" />
+        <attr name="isImgCenterBig" format="boolean" />
+        <attr name="isImgRightBig" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="WgSlideButton">
+
+        <!-- 打开时的背景图片 -->
+        <attr name="slideBgOn" format="reference" />
+        <!-- 关闭时的背景图片 -->
+        <attr name="slideBgOff" format="reference" />
+        <!-- 滑动块图片 -->
+        <attr name="slideBtn" format="reference" />
+        <!-- 设置当前的状态 -->
+        <attr name="isOpen" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="wheelview">
+        <attr name="wheelgravity">
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="textSize" format="dimension" />
+        <attr name="textColorOut" format="color" />
+        <attr name="textColorCenter" format="color" />
+        <attr name="dividerColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WgScalemageView">
+        <attr name="wgScale" format="float" />
+
+    </declare-styleable>
+    <declare-styleable name="WgShapeImageView">
+        <attr name="wgBorderWidth" format="dimension" />
+        <attr name="wgBorderColor" format="color" />
+        <attr name="wgRadius" format="dimension" />
+        <attr name="wgPressedAlpha" format="float" />
+        <attr name="wgPressedColor" format="color" />
+        <attr name="wgPlaceHolder" format="reference" />
+        <attr name="wgErrorImg" format="reference" />
+        <attr name="wgShapeType" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="circle" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="WgSwitchButton">
+        <attr name="wgThumbDrawable" format="reference" />
+        <attr name="wgThumbColor" format="color|reference" />
+        <attr name="wgThumbMargin" format="dimension|reference" />
+        <attr name="wgThumbMarginTop" format="dimension|reference" />
+        <attr name="wgThumbMarginBottom" format="dimension|reference" />
+        <attr name="wgThumbMarginLeft" format="dimension|reference" />
+        <attr name="wgThumbMarginRight" format="dimension|reference" />
+        <attr name="wgThumbWidth" format="dimension|reference" />
+        <attr name="wgThumbHeight" format="dimension|reference" />
+        <attr name="wgThumbRadius" format="dimension|reference" />
+        <attr name="wgBackRadius" format="dimension|reference" />
+        <attr name="wgBackDrawable" format="reference" />
+        <attr name="wgBackColor" format="color|reference" />
+        <attr name="wgFadeBack" format="boolean" />
+        <attr name="wgBackMeasureRatio" format="float" />
+        <attr name="wgAnimationDuration" format="integer" />
+        <attr name="wgTintColor" format="color|reference" />
+        <attr name="wgTextOn" format="string" />
+        <attr name="wgTextOff" format="string" />
+        <attr name="wgTextMarginH" format="dimension" />
+        <attr name="wgAutoAdjustTextPosition" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleIndicator">
+        <attr name="ci_radius" format="dimension" />
+        <attr name="ci_margin" format="dimension" />
+        <attr name="ci_background" format="color|integer" />
+        <attr name="ci_selected_background" format="color|integer" />
+        <attr name="ci_gravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="ci_mode">
+            <enum name="inside" value="0" />
+            <enum name="outside" value="1" />
+            <enum name="solo" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="WgLoading">
+        <attr name="wgloading_text" format="string" />
+    </declare-styleable>
+    <declare-styleable name="WgImageRatingView">
+        <attr name="maxCount" format="integer" />
+        <attr name="minStep" format="float" />
+        <attr name="frontImage" format="reference" />
+        <attr name="backImage" format="reference" />
+        <attr name="spanSize" format="dimension" />
+        <attr name="rating" format="float" />
+        <attr name="touchable" format="boolean" />
+        <attr name="imageWidth" format="dimension" />
+        <attr name="imageHeight" format="dimension" />
+    </declare-styleable>
+</resources>

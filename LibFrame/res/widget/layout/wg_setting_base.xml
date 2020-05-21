@@ -1,0 +1,132 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wg_setting_body"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_setting_item"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:minHeight="@dimen/wg_single_item_min_height"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/wg_setting_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/wg_single_item_line" />
+
+    <View
+        android:id="@+id/wg_setting_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/wg_single_item_padding"
+        android:layout_marginRight="@dimen/wg_single_item_padding"
+        android:background="@color/wg_single_item_line"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/wg_single_item_padding">
+
+        <ImageView
+            android:id="@+id/wg_setting_img_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wg_single_item_padding"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/wg_setting_input"
+            style="@style/WkBaseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wg_single_item_padding"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/wg_single_item_sub_title"
+            android:textSize="@dimen/wk_single_item_sub_title_text_size"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/wg_setting_img_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wg_single_item_padding"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wg_single_item_padding"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/wg_setting_title"
+                style="@style/TEXT_BLACK_26PX_54A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="修改昵称"
+                android:textSize="@dimen/wk_single_item_title_text_size" />
+
+            <TextView
+                android:id="@+id/wg_setting_detail"
+                style="@style/TEXT_WHITE_24PX_54A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/new_8px"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="修改昵称"
+                android:textSize="@dimen/wk_single_item_title_text_size" />
+        </LinearLayout>
+
+        <lib.frame.view.widget.WgSwitchButton
+            android:id="@+id/wg_setting_btn_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wg_single_item_padding"
+            android:checked="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/wg_setting_sub_title"
+            style="@style/WkBaseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wg_single_item_padding"
+            android:text="副标题"
+            android:textColor="@color/wg_single_item_sub_title"
+            android:textSize="@dimen/wk_single_item_sub_title_text_size"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/wg_setting_img_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/wg_single_item_padding" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/wg_setting_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/wg_single_item_padding"
+        android:layout_marginRight="@dimen/wg_single_item_padding"
+        android:background="@color/wg_single_item_line"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/wg_setting_line4"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/wg_single_item_line" />
+
+</LinearLayout>

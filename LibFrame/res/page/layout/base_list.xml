@@ -1,0 +1,15 @@
+<lib.frame.view.swipeRefresh.SwipyRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_list_body"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <lib.frame.view.recyclerView.RecyclerView
+        android:id="@+id/base_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</lib.frame.view.swipeRefresh.SwipyRefreshLayout>
+
+

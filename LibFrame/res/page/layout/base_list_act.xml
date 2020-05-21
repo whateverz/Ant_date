@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <lib.frame.view.widget.WgActionBarBase
+        android:id="@+id/base_list_act_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_h" />
+
+
+    <lib.frame.view.swipeRefresh.SwipyRefreshLayout
+        android:id="@+id/base_list_act_body"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <lib.frame.view.recyclerView.RecyclerView
+            android:id="@+id/base_list_act_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </lib.frame.view.swipeRefresh.SwipyRefreshLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
+    defaultConfig {
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res/main', 'res/page', 'res/widget']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+        // Move the tests to tests/java, tests/res, etc...
+//        instrumentTest.setRoot('tests')
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api androidAppCompat
+    api androidSupportV13
+    api androidSupportV4
+    api recyclerView
+    api annotations
+    api androidDesign
+    api constraintLayout
+    api eventbus
+    api okhttp
+    api okhttpLog
+    api(glide) {
+        exclude module: 'support-annotations'
+        exclude module: 'support-fragment'
+    }
+    api(glideOkhttp) {
+        exclude module: 'support-annotations'
+        exclude module: 'support-fragment'
+    }
+    annotationProcessor glideCompiler
+
+    api gson
+
+    api(materialDialog) {
+        exclude module: 'appcompat-v7'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-v13'
+        exclude module: 'support-annotations'
+    }
+    api photoview
+    //    api rxJava
+    //    api rxAndroid
+    //recyclerview 的分割线样式
+    api 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    api 'me.zhanghai.android.materialprogressbar:library:1.6.1'
+    api 'com.bigkoo:convenientbanner:2.0.5'
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+//    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'//没有使用特殊Header，可以不加这行
+
+//    api 'net.zetetic:android-database-sqlcipher:3.5.6'
+//    api 'com.bm.photoview:library:1.4.1'
+}

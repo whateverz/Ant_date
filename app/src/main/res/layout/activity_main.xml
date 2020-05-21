@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+    <!--switch-->
+    <TextView
+        android:id="@+id/tv_message_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="60dp"
+        android:text="@string/message_notice"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Switch
+        android:id="@+id/switch_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_message_notice"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_message_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        android:text="@string/message_record"
+        app:layout_constraintBaseline_toBaselineOf="@id/switch_record"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_message_notice"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_message_zhushi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="@string/message_record_ins"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_message_record"
+        app:layout_constraintRight_toLeftOf="@id/switch_record"
+        tools:ignore="MissingConstraints" />
+
+    <Switch
+        android:id="@+id/switch_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_notice"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_pullset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:text="@string/pullset"
+        app:layout_constraintBaseline_toBaselineOf="@id/switch_pullset"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_message_record"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_message_pull_zhushi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="@string/ifallow_pull"
+        app:layout_constraintBaseline_toBaselineOf="@id/switch_pullset"
+        app:layout_constraintRight_toLeftOf="@id/switch_pullset"
+        tools:ignore="MissingConstraints" />
+
+    <Switch
+        android:id="@+id/switch_pullset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_record"
+        tools:ignore="MissingConstraints" />
+
+
+    <!--other-->
+
+    <TextView
+        android:id="@+id/tv_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="60dp"
+        android:text="@string/changepsd"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_pullset"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_changepass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="@string/txetchange"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/switch_pullset"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_phonenumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        android:text="@string/phonenumber"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_psw"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_phonenumberbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="135****4368"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_change_phone"
+        app:layout_constraintRight_toLeftOf="@+id/tv_change_phone"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_change_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="@string/txetchange"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_changepass"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_change_emaila"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        android:text="@string/email"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_change_phone"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="135****4368@163.com"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_change_email"
+        app:layout_constraintRight_toLeftOf="@+id/tv_change_phone"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_change_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:text="@string/txetchange"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_change_phone"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>
