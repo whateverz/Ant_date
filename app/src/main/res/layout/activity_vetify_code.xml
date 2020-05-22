@@ -9,7 +9,7 @@
 
     <include
         layout="@layout/title_login"
-      app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
         android:id="@+id/iv_icon"
@@ -31,28 +31,19 @@
         android:layout_marginTop="@dimen/new_570px"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="@dimen/new_137px"
-      />
+        />
     <TextView
-        android:layout_width="@dimen/new_139px"
+        android:layout_width="@dimen/new_180px"
         android:layout_height="@dimen/new_65px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/new_561px"
+        android:gravity="center"
         android:textSize="@dimen/new_48px"
-        android:text="手机号"
+        android:paddingTop="6px"
+        android:text="验证码"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="@dimen/new_203px"
-        />
-    <TextView
-        android:layout_width="@dimen/new_82px"
-        android:layout_height="@dimen/new_65px"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/et_phone"
-        android:layout_marginTop="@dimen/new_674px"
-        android:text="+86|"
-        tools:ignore="MissingConstraints"
-        android:layout_marginLeft="@dimen/new_137px"
         />
     <ImageView
         android:layout_width="@dimen/new_82px"
@@ -60,10 +51,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/new_674px"
-        android:src="@mipmap/icon_mobile"
+        android:layout_marginTop="@dimen/new_664px"
+        android:src="@mipmap/default_photo"
         tools:ignore="MissingConstraints"
-        android:layout_marginLeft="@dimen/new_904px"
+        android:layout_marginLeft="@dimen/new_637px"
         />
     <EditText
         android:id="@+id/et_phone"
@@ -74,25 +65,23 @@
         android:layout_marginTop="@dimen/new_674px"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/new_137px"
-        android:hint="在这儿输入手机号"
-        android:maxLength="11"
+        android:hint="在这儿输入验证码"
         tools:ignore="MissingConstraints"
         android:background="@color/white"
-        android:layout_marginLeft="@dimen/new_256px"
+        android:layout_marginLeft="@dimen/new_137px"
         />
-    <ImageView
-        android:id="@+id/iv_delete"
-        android:layout_width="@dimen/new_39px"
-        android:layout_height="@dimen/new_39px"
+    <TextView
+        android:id="@+id/tv_send_vertify"
+        android:layout_width="@dimen/new_306px"
+        android:layout_height="@dimen/new_84px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/new_674px"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/new_137px"
-        android:visibility="invisible"
         tools:ignore="MissingConstraints"
-        android:src="@mipmap/delete"
-        android:layout_marginLeft="@dimen/new_904px"
+        android:src="@mipmap/default_photo"
+        android:layout_marginLeft="@dimen/new_637px"
         />
     <ImageView
         android:layout_width="@dimen/new_806px"
@@ -101,32 +90,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/new_752px"
-       android:background="@color/a_main_tab_normal"
+        android:background="@color/a_main_tab_normal"
         tools:ignore="MissingConstraints"
-        android:layout_marginRight="@dimen/new_137px"
-        android:layout_marginLeft="@dimen/new_137px"
-        />
-    <TextView
-        android:id="@+id/tv_alert"
-        android:layout_width="@dimen/new_468px"
-        android:layout_height="@dimen/new_54px"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/new_768px"
-        tools:ignore="MissingConstraints"
-        android:text="验证码已超时，请重新获取"
-        android:visibility="invisible"
-        android:textSize="@dimen/negative_39px"
-        android:textColor="@color/tv_alert"
         android:layout_marginRight="@dimen/new_137px"
         android:layout_marginLeft="@dimen/new_137px"
         />
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_sure_vertify"
         android:layout_width="@dimen/new_806px"
         android:layout_height="@dimen/new_120px"
-        android:enabled="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -140,21 +112,16 @@
         android:layout_marginLeft="@dimen/new_137px"
         />
     <TextView
-        android:id="@+id/tv_registe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/new_1079px"
-        tools:ignore="MissingConstraints"
-        android:text="注册"
-        android:textSize="@dimen/new_42px"
+        app:layout_constraintStart_toStartOf="@id/btn_sure_vertify"
+        app:layout_constraintTop_toBottomOf="@id/btn_sure_vertify"
+        android:layout_marginStart="@dimen/new_470px"
+        android:text="没有收到验证码？"
         android:textColor="@color/theme_color_green"
-        android:layout_marginRight="@dimen/new_137px"
-        android:layout_marginLeft="@dimen/new_859px"
-        />
-    <LinearLayout
+        android:textSize="@dimen/new_48px"
+        android:layout_marginTop="@dimen/new_76px" />
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -182,12 +149,12 @@
             android:layout_height="@dimen/new_96px"
             android:src="@mipmap/icon_sina"
             />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/btn_login"
+        app:layout_constraintTop_toBottomOf="@id/btn_sure_vertify"
         android:layout_marginTop="@dimen/new_735px"
         android:orientation="horizontal"
         android:gravity="center"

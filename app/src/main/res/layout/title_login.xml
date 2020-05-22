@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_view_new"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/custom_title_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/new_159px"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/new_48px"
+        android:layout_marginRight="@dimen/new_48px"
+        android:background="@color/white"
+        >
+<ImageView
+    android:id="@+id/iv_back"
+    android:layout_width="@dimen/new_30px"
+    android:layout_height="@dimen/new_60px"
+    android:src="@mipmap/icon_back"
+    />
+        <TextView
+            android:id="@+id/tv_loginby_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="游客进入"
+            android:textColor="@color/theme_color_green"
+            android:textSize="@dimen/new_48px" />
+    </RelativeLayout>
+
+</FrameLayout>

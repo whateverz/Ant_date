@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="c777777">#777777</color>
+    <color name="cccccc">#CCCCCC</color>
+    <color name="c00AC38">#00AC38</color>
+    <color name="cFFFFFF">#FFFFFF</color>
+    <color name="cAAAAAA">#AAAAAA</color>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <color name="colorPrimary">#FF7440</color>
     <color name="colorPrimaryDark">@color/status_bar_color</color>
     <color name="colorAccent">#D81B60</color>
