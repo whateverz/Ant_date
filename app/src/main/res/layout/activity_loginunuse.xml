@@ -22,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/textaccount"
+        android:drawableLeft="@mipmap/icon_mobile"
         android:layout_marginStart="@dimen/new_137px"
         android:layout_marginTop="@dimen/new_228px"
         android:textColor="@color/c777777"

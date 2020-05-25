@@ -14,8 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/ThemeActivity"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.VetifyCodeActivity"></activity>
+        <activity android:name=".activity.ForgetPassActivity"></activity>
+        <activity android:name=".activity.VetifyCodeActivity" />
         <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.RegistActivity" />
+        <activity android:name=".activity.SendVetifyCodeActivity" />
         <activity
             android:name=".activity.LoginActivity"
             android:label="蚂蚁捡友"

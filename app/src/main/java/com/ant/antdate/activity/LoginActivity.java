@@ -28,11 +28,19 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     ImageView iv_delete;
     @BindView(R.id.iv_back)
     ImageView iv_back;
+    @BindView(R.id.tv_forget_pass)
+    TextView tv_forget_pass;
+
+    @BindView(R.id.tv_login_by_vertify)
+    TextView tv_login_by_vertify;
+    @BindView(R.id.tv_registe)
+    TextView tv_registe;
+
     private String phone;
     @Override
     protected void setRootView() {
         super.setRootView();
-        rootViewId = R.layout.activity_login;
+        rootViewId = R.layout.activity_login_new;
     }
 
     @Override
@@ -41,9 +49,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         btn_login.setOnClickListener(this::onClick);
         tv_loginby_user.setOnClickListener(this::onClick);
         iv_delete.setOnClickListener(this::onClick);
+        tv_forget_pass.setOnClickListener(this::onClick);
       //  iv_back.setOnClickListener(this::onClick);
-
-
+        tv_login_by_vertify.setOnClickListener(this::onClick);
+        tv_registe.setOnClickListener(this::onClick);
         et_phone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -63,7 +72,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 if (phone.length()==11){
                     btn_login.setEnabled(true);
-                    btn_login.setBackgroundResource((R.mipmap.default_photo));
+                    btn_login.setBackgroundResource((R.mipmap.bg_canlogin));
                 }else {
                     btn_login.setEnabled(false);
                     btn_login.setBackgroundResource((R.mipmap.bg_btn_login));
@@ -92,7 +101,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     btn_login.setEnabled(false);
                 }*/
                 LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
-                goToActivity(VetifyCodeActivity.class);
+                goToActivity(MainActivity.class);
                 break;
             case R.id.tv_loginby_user:
                 goToActivity(MainActivity.class);
@@ -100,8 +109,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.iv_delete:
                et_phone.setText("");
                 break;
+            case R.id.tv_forget_pass:
+                goToActivity(ForgetPassActivity.class);
+                break;
             case R.id.iv_back:
                 finish();
+            case R.id.tv_login_by_vertify:
+                goToActivity(VetifyCodeActivity.class);
+            case R.id.tv_registe:
+                goToActivity(RegistActivity.class);
                 break;
         }
     }
