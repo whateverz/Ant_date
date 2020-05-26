@@ -1,65 +1,70 @@
 package com.ant.antdate.activity;
 
-import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.ant.antdate.R;
 import com.ant.antdate.base.BaseActivity;
-import com.ant.antdate.bean.LoginInfo;
 import com.ant.antdate.logic.LogicRequest;
 import com.ant.antdate.utils.Util;
+
+import java.util.Timer;
 
 import lib.frame.module.http.HttpResult;
 import lib.frame.module.ui.BindView;
 
-public class RegistActivity extends BaseActivity implements View.OnClickListener {
+public class SendVetifyCodeLogoActivity extends BaseActivity {
+    @BindView(R.id.tv_loginby_user)
+    TextView tv_loginby_user;
     @BindView(R.id.iv_back)
     ImageView iv_back;
-    @BindView(R.id.iv_delete)
-    ImageView iv_delete;
-    @BindView(R.id.et_phone)
-    EditText et_phone;
-    @BindView(R.id.btn_next)
+    @BindView (R.id.btn_next)
     Button btn_next;
-    private String phone;
+    @BindView(R.id.et_vertify)
+    EditText et_vertify;
+    @BindView(R.id.btn_timer)
+    Button btn_timer;
+    String verifycode;
+    private Timer timer ;
     @Override
     protected void setRootView() {
         super.setRootView();
-        rootViewId = R.layout.activity_register;
+        rootViewId = R.layout.activity_sendver_logo;
     }
 
     @Override
     protected void initView() {
         super.initView();
+        countDown();
+       // tv_loginby_user.setVisibility(View.GONE);
         iv_back.setOnClickListener(this::onClick);
-        iv_delete.setOnClickListener(this::onClick);
         btn_next.setOnClickListener(this::onClick);
-        et_phone.addTextChangedListener(new TextWatcher() {
+        btn_timer.setOnClickListener(this::onClick);
+        et_vertify.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                iv_delete.setVisibility(View.GONE);
+              //  iv_delete.setVisibility(View.GONE);
                 btn_next.setBackgroundResource((R.mipmap.bg_btn_login));
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                iv_delete.setVisibility(View.VISIBLE);
+               // iv_delete.setVisibility(View.VISIBLE);
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                phone = et_phone.getText().toString();
+                verifycode = et_vertify.getText().toString();
 
-                if (phone.length()==11){
+                if (verifycode.length()==4){
                     btn_next.setEnabled(true);
                     btn_next.setBackgroundResource((R.mipmap.bg_canlogin));
                 }else {
@@ -69,19 +74,23 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
             }
         });
     }
+
+    @Override
+    protected void loadData() {
+        super.loadData();
+    }
     @Override
     public <T> void onHttpCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
         super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
-        if (reqId==1){
-            if (httpResult.getCode()==1000){
-
-                goToActivity(SendVetifyCodeRegisterActivity.class,et_phone.getText().toString(),null);
-            }else {
-                Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
-            }
-
+        if (httpResult.getCode()==1000){
+            goToActivity(MainActivity.class);
+            Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
         }
     }
+
+
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -97,18 +106,40 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
                 LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
                 goToActivity(VetifyCodeActivity.class);
                 break;*/
+            case R.id.btn_next:
+                String phone = Util.readIni(this,"phone","");
+                LogicRequest.LoginbyCode(1,phone, et_vertify.getText().toString(), getHttpHelper());
+                break;
             case R.id.iv_back:
                 finish();
-                break;
-            case R.id.iv_delete:
-                et_phone.setText("");
-                break;
-            case R.id.btn_next:
-                Util.writeIni(this,"phone",et_phone.getText().toString());
-                LogicRequest.sendSMS(1,et_phone.getText().toString(), 1, getHttpHelper());
-
-               // goToActivity(SendVetifyCodeRegisterActivity.class);
+            case R.id.btn_timer:
+                countDown();
+                String phonenumber = Util.readIni(this,"phone","");
+                LogicRequest.sendSMS(3,phonenumber, 2, getHttpHelper());
                 break;
         }
     }
+    /**
+     * 倒计时显示
+     */
+    private void countDown() {
+
+        CountDownTimer timer = new CountDownTimer(60000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                btn_timer.setEnabled(false);
+                btn_timer.setText("重新发送" + millisUntilFinished / 1000 );
+            }
+
+            @Override
+            public void onFinish() {
+                btn_timer.setEnabled(true);
+                btn_timer.setText("重新获取");
+
+            }
+        }.start();
+
+
+    }
+
 }

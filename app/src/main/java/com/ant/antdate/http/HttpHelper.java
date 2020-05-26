@@ -2,16 +2,12 @@ package com.ant.antdate.http;
 
 import android.content.Context;
 
+import com.ant.antdate.BuildConfig;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.ant.antdate.BuildConfig;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
-import lib.frame.utils.Log;
-import lib.frame.utils.SysTools;
 import okhttp3.Headers;
 
 /**

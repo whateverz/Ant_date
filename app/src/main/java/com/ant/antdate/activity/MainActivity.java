@@ -41,8 +41,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void loadData() {
         super.loadData();
-        LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
-        RegisterRequest.Register(2, "13581714368", "1696", getHttpHelper());
+       // LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
+        //RegisterRequest.Register(2, "13581714368", "1696", getHttpHelper());
     }
 
     @Override

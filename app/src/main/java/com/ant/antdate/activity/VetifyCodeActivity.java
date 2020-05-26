@@ -48,7 +48,7 @@ public class VetifyCodeActivity extends BaseActivity {
                 goToActivity(VetifyCodeActivity.class);
                 break;*/
             case R.id.tv_loginby_user:
-                goToActivity(MainActivity.class);
+                //goToActivity(MainActivity.class);
                 break;
             case R.id.iv_back:
                 finish();

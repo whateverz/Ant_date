@@ -9,8 +9,14 @@ import com.ant.antdate.bean.Userinfo;
 import com.ant.antdate.db.LogicDB;
 import com.meituan.android.walle.WalleChannelReader;
 
+import java.util.List;
 import java.util.Locale;
 
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import lib.frame.base.AppBase;
 import lib.frame.base.IdConfigBase;
 import lib.frame.bean.BaseHeaderInfo;
@@ -24,7 +30,7 @@ import okhttp3.Headers;
  */
 
 public class App extends AppBase {
-
+    private Userinfo mUserInfo;
 
     @Override
     public void onCreate() {
@@ -36,8 +42,6 @@ public class App extends AppBase {
         LogicDB.init(this);
         getUserInfo();
     }
-
-
 
 
     private static String getChannelFromApk(Context context) {
@@ -69,12 +73,26 @@ public class App extends AppBase {
 
     @Override
     public void setUserInfo(UserBaseInfo userInfo) {
+        if (userInfo instanceof Userinfo) {
+            mUserInfo = (Userinfo) userInfo;
+            Flowable.create((FlowableOnSubscribe<Userinfo>) e -> {
+                LogicDB.getBox(Userinfo.class).removeAll();
+                LogicDB.getBox(Userinfo.class).put(mUserInfo);
+//                MobclickAgent.onProfileSignIn(mUserInfo.getNickName());
+//                CrashReport.setUserId(mUserInfo.getNickName());
 
+                e.onNext(mUserInfo);
+
+            }, BackpressureStrategy.BUFFER)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe();
+        }
     }
 
     @Override
     public void logout() {
-
+        doLogout();
     }
 
     @Override
@@ -82,8 +100,19 @@ public class App extends AppBase {
         return new Userinfo();
     }
 
-    public void doLogout() {
+    private Flowable<UserBaseInfo> getLogoutObservable() {
+        return Flowable.create(e -> {
+            mUserInfo = new Userinfo();
+            LogicDB.getBox(Userinfo.class).removeAll();
+            e.onNext(mUserInfo);
+        }, BackpressureStrategy.BUFFER);
+    }
 
+    public void doLogout() {
+        if (mUserInfo != null)
+            getLogoutObservable()
+                    .subscribeOn(Schedulers.io())
+                    .subscribe();
     }
 
     @Override
@@ -93,7 +122,19 @@ public class App extends AppBase {
 
     @Override
     public UserBaseInfo getUserInfo() {
-        return new Userinfo();
+        if (mUserInfo == null) {
+            List<Userinfo> userInfos = LogicDB.getBox(Userinfo.class).getAll();
+            if (userInfos.size() > 0) {
+                mUserInfo = userInfos.get(userInfos.size() - 1);
+                if (userInfos.size() > 1) {
+                    LogicDB.getBox(Userinfo.class).removeAll();
+                }
+                setUserInfo(mUserInfo);
+            } else {
+                mUserInfo = new Userinfo();
+            }
+        }
+        return mUserInfo;
     }
 
     @Override

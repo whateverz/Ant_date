@@ -1,6 +1,7 @@
 package com.ant.antdate.activity;
 
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
@@ -8,12 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ant.antdate.R;
 import com.ant.antdate.base.BaseActivity;
+import com.ant.antdate.bean.LoginInfo;
 import com.ant.antdate.logic.LogicRequest;
 import com.ant.antdate.register.RegisterRequest;
+import com.ant.antdate.utils.Util;
 
+import lib.frame.module.http.HttpResult;
 import lib.frame.module.ui.BindView;
 import lib.frame.utils.Log;
 
@@ -24,10 +29,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     TextView tv_loginby_user;
     @BindView(R.id.et_phone)
     EditText et_phone;
+    @BindView(R.id.et_pwd)
+    EditText et_pwd;
     @BindView(R.id.iv_delete)
     ImageView iv_delete;
     @BindView(R.id.iv_back)
     ImageView iv_back;
+    @BindView(R.id.iv_eyes)
+    ImageView iv_eyes;
     @BindView(R.id.tv_forget_pass)
     TextView tv_forget_pass;
 
@@ -37,6 +46,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     TextView tv_registe;
 
     private String phone;
+    private boolean passswitch;
+    private LoginInfo loginInfo;
     @Override
     protected void setRootView() {
         super.setRootView();
@@ -46,6 +57,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initView() {
         super.initView();
+        passswitch = false;
+
         btn_login.setOnClickListener(this::onClick);
         tv_loginby_user.setOnClickListener(this::onClick);
         iv_delete.setOnClickListener(this::onClick);
@@ -53,6 +66,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
       //  iv_back.setOnClickListener(this::onClick);
         tv_login_by_vertify.setOnClickListener(this::onClick);
         tv_registe.setOnClickListener(this::onClick);
+        iv_eyes.setOnClickListener(this::onClick);
         et_phone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -85,7 +99,21 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void loadData() {
         super.loadData();
-        RegisterRequest.Register(2, "13581714368", "1696", getHttpHelper());
+      //  RegisterRequest.Register(2, "13581714368", "1696", getHttpHelper());
+    }
+
+    @Override
+    public <T> void onHttpCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
+        super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
+        loginInfo = new LoginInfo();
+        if (reqId==1){
+            if (httpResult.getCode()==1000){
+                loginInfo = HttpResult.getResults(httpResult);
+                Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
+                goToActivity(MainActivity.class);
+            }
+
+        }
     }
 
     @Override
@@ -100,8 +128,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 }else {
                     btn_login.setEnabled(false);
                 }*/
-                LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
-                goToActivity(MainActivity.class);
+                LogicRequest.Login(1, et_phone.getText().toString(), et_pwd.getText().toString(), getHttpHelper());
+               // LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
+
                 break;
             case R.id.tv_loginby_user:
                 goToActivity(MainActivity.class);
@@ -110,14 +139,30 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                et_phone.setText("");
                 break;
             case R.id.tv_forget_pass:
+                Util.writeIni(this,"CodeType","forgetpass");
                 goToActivity(ForgetPassActivity.class);
                 break;
             case R.id.iv_back:
                 finish();
+                break;
             case R.id.tv_login_by_vertify:
-                goToActivity(VetifyCodeActivity.class);
+                goToActivity(VtifyPhoneActivity.class);
+                break;
             case R.id.tv_registe:
+                Util.writeIni(this,"CodeType","register");
                 goToActivity(RegistActivity.class);
+                break;
+            case R.id.iv_eyes:
+                if (!passswitch){
+                    iv_eyes.setImageResource(R.mipmap.open_eye);
+                    et_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    passswitch=true;
+                }else {
+                    iv_eyes.setImageResource(R.mipmap.icon_cloeye);
+                    et_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD|InputType.TYPE_CLASS_TEXT);
+                    passswitch=false;
+                }
+
                 break;
         }
     }

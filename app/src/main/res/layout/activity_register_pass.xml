@@ -8,7 +8,7 @@
     >
     <ImageView
         android:id="@+id/iv_back"
-        android:layout_width="@dimen/new_30px"
+        android:layout_width="@dimen/new_60px"
         android:layout_height="@dimen/new_60px"
         android:src="@mipmap/icon_back"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/new_247px"
         android:textSize="@dimen/new_66px"
-        android:text="重置登录密码"
+        android:text="注册"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="@dimen/new_137px"
         />
@@ -35,8 +35,8 @@
         android:layout_height="@dimen/new_48px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/icon_mobile"
-        android:layout_marginTop="@dimen/new_662px"
+        android:src="@mipmap/icon_pass"
+        android:layout_marginTop="@dimen/new_635px"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="@dimen/new_137px"
         />
@@ -45,16 +45,15 @@
         android:layout_height="@dimen/new_65px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/new_662px"
+        android:layout_marginTop="@dimen/new_635px"
         android:textSize="@dimen/new_48px"
-        android:inputType="number"
-        android:text="验证码"
+        android:text="设置新密码"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="@dimen/new_203px"
         />
 
     <EditText
-        android:id="@+id/et_vertify"
+        android:id="@+id/et_pass"
         android:layout_width="@dimen/new_806px"
         android:layout_height="@dimen/new_65px"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,35 +61,33 @@
         android:layout_marginTop="@dimen/new_754px"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/new_137px"
-        android:hint="验证码"
-        android:maxLength="11"
+        android:hint="请设置密码"
+        android:inputType="textPassword"
+        android:maxLength="8"
         tools:ignore="MissingConstraints"
         android:background="@color/white"
         android:layout_marginLeft="@dimen/new_137px"
         />
-
-    <Button
-        android:id="@+id/btn_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/new_84px"
-        android:layout_marginLeft="@dimen/new_637px"
-        android:layout_marginTop="@dimen/new_754px"
-        android:background="@mipmap/send_passbg"
-        android:layout_marginRight="@dimen/new_137px"
-        android:paddingLeft="@dimen/new_35px"
-        android:paddingRight="@dimen/new_35px"
-        android:text="重新发送"
-        app:layout_constraintLeft_toLeftOf="parent"
+    <ImageView
+        android:id="@+id/iv_eyes"
+        android:layout_width="@dimen/new_39px"
+        android:layout_height="@dimen/new_39px"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
+        android:layout_marginTop="@dimen/new_764px"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="@dimen/new_137px"
+        tools:ignore="MissingConstraints"
+        android:src="@mipmap/icon_cloeye"
+        android:layout_marginLeft="@dimen/new_904px"
+        />
     <ImageView
         android:layout_width="@dimen/new_806px"
         android:layout_height="@dimen/new_1px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="@dimen/new_834px"
+        android:layout_marginTop="@dimen/new_824px"
         android:background="@color/a_main_tab_normal"
         tools:ignore="MissingConstraints"
         android:layout_marginRight="@dimen/new_137px"
@@ -121,7 +118,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/new_915px"
-        android:text="下一步"
+        android:text="确定并登陆"
         android:background="@mipmap/bg_btn_login"
         android:textColor="@color/white"
         android:textSize="@dimen/new_48px"
@@ -129,6 +126,43 @@
         android:layout_marginRight="@dimen/new_137px"
         android:layout_marginLeft="@dimen/new_137px"
         />
-
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/new_299px"
+        android:layout_marginRight="@dimen/new_299px"
+        android:layout_marginBottom="@dimen/new_43px"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_agree"
+            android:textSize="@dimen/new_32px"
+            android:textColor="@color/cAAAAAA"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/softwareservice"
+                android:textColor="@color/c00AC38"
+                android:textSize="@dimen/new_32px"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《隐私协议》"
+                android:textColor="@color/c00AC38"
+                android:textSize="@dimen/new_32px"
+                />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

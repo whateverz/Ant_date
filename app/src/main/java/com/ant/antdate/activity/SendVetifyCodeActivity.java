@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.ant.antdate.R;
 import com.ant.antdate.base.BaseActivity;
+import com.ant.antdate.logic.LogicRequest;
+import com.ant.antdate.utils.Util;
 
 import java.util.Timer;
 
@@ -42,6 +44,7 @@ public class SendVetifyCodeActivity extends BaseActivity {
        // tv_loginby_user.setVisibility(View.GONE);
         iv_back.setOnClickListener(this::onClick);
         btn_next.setOnClickListener(this::onClick);
+        btn_timer.setOnClickListener(this::onClick);
         et_vertify.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -90,10 +93,17 @@ public class SendVetifyCodeActivity extends BaseActivity {
                 goToActivity(VetifyCodeActivity.class);
                 break;*/
             case R.id.btn_next:
-                goToActivity(MainActivity.class);
+                Util.writeIni(this,"code",et_vertify.getText().toString());
+               // goToActivity(RegisterSetPassActivity.class);
+                goToActivity(ResetPassActivity.class);
                 break;
             case R.id.iv_back:
                 finish();
+                break;
+            case R.id.btn_timer:
+                countDown();
+                String phonenumber = Util.readIni(this,"phone","");
+                LogicRequest.sendSMS(3,phonenumber, 3, getHttpHelper());
                 break;
         }
     }

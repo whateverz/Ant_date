@@ -28,6 +28,6 @@
     <string name="phone_fast">手机快捷登录</string>
     <string name="forget_password">忘记密码？</string>
     <string name="register">注册</string>
-    <string name="login_agree">登录即代表已阅读并同意</string>
+    <string name="login_agree">登录即代表已阅读并同意蚂蚁捡友</string>
     <string name="softwareservice">《服务协议》</string>
 </resources>

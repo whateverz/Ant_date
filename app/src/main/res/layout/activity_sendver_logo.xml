@@ -17,17 +17,16 @@
         android:layout_marginTop="@dimen/new_124px"
         android:layout_marginLeft="@dimen/new_68px"
         tools:ignore="MissingConstraints" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/new_222px"
+        android:layout_height="@dimen/new_222px"
+        android:layout_marginTop="@dimen/new_199px"
+        android:src="@mipmap/app_icon"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/new_247px"
-        android:textSize="@dimen/new_66px"
-        android:text="重置登录密码"
-        tools:ignore="MissingConstraints"
-        android:layout_marginLeft="@dimen/new_137px"
-        />
+        tools:ignore="MissingConstraints" />
 
 
     <ImageView
@@ -121,7 +120,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/new_915px"
-        android:text="下一步"
+        android:text="登录"
         android:background="@mipmap/bg_btn_login"
         android:textColor="@color/white"
         android:textSize="@dimen/new_48px"

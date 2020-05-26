@@ -12,6 +12,8 @@ import android.widget.ImageView;
 
 import com.ant.antdate.R;
 import com.ant.antdate.base.BaseActivity;
+import com.ant.antdate.logic.LogicRequest;
+import com.ant.antdate.utils.Util;
 
 import lib.frame.module.ui.BindView;
 
@@ -77,6 +79,10 @@ public class ForgetPassActivity extends BaseActivity {
                 et_phone.setText("");
                 break;
             case R.id.btn_next:
+                Util.writeIni(this,"phone",et_phone.getText().toString());
+                LogicRequest.sendSMS(1,et_phone.getText().toString(), 3, getHttpHelper());
+                //goToActivity(SendVetifyCodeRegisterActivity.class,et_phone.getText().toString(),null);
+                // goToActivity(SendVetifyCodeRegisterActivity.class);
                 goToActivity(SendVetifyCodeActivity.class);
                 break;
 

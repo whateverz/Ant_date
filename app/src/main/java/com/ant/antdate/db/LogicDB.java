@@ -2,6 +2,7 @@ package com.ant.antdate.db;
 
 import android.content.Context;
 
+import com.ant.antdate.MyObjectBox;
 import com.ant.antdate.base.App;
 
 import java.io.File;
@@ -11,6 +12,13 @@ import javax.annotation.Nonnull;
 
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
+import io.objectbox.BoxStoreBuilder;
+import io.objectbox.exception.DbException;
+import io.reactivex.BackpressureStrategy;
+import io.reactivex.Flowable;
+import io.reactivex.FlowableOnSubscribe;
+import lib.frame.utils.Log;
+import lib.frame.utils.SpHelper;
 
 /**
  * Created by shuaqq on 2017/11/7.
@@ -33,21 +41,21 @@ public class LogicDB {
     }
 
     private void initBox(App app) {
-//        int namePos = SpHelper.getInstance(app).getInt("boxname", 0);
-//        try {
-//            mBoxStore = MyObjectBox.builder().androidContext(app).name(BOXNAME[namePos]).build();
-//            Log.i(TAG, "Build " + BOXNAME[namePos] + " DB success!");
-//        } catch (DbException e) {
-//            e.printStackTrace();
-//            Log.e(TAG, "Build " + BOXNAME[namePos] + " DB fail,try to build another one");
-//            int finalNamePos = namePos;
-//            Flowable.create((FlowableOnSubscribe<String>) e1 -> BoxStore.deleteAllFiles(new File(androidContext(app), BOXNAME[finalNamePos])), BackpressureStrategy.BUFFER).subscribe();
-//            namePos = 1 - namePos;
-//            BoxStoreBuilder builder = MyObjectBox.builder().androidContext(app).name(BOXNAME[namePos]);
-//            mBoxStore = builder.build();
-//            SpHelper.getInstance(app).setInt("boxname", namePos);
-//            Log.i(TAG, "Build " + BOXNAME[namePos] + " DB success");
-//        }
+        int namePos = SpHelper.getInstance(app).getInt("boxname", 0);
+        try {
+            mBoxStore = MyObjectBox.builder().androidContext(app).name(BOXNAME[namePos]).build();
+            Log.i(TAG, "Build " + BOXNAME[namePos] + " DB success!");
+        } catch (DbException e) {
+            e.printStackTrace();
+            Log.e(TAG, "Build " + BOXNAME[namePos] + " DB fail,try to build another one");
+            int finalNamePos = namePos;
+            Flowable.create((FlowableOnSubscribe<String>) e1 -> BoxStore.deleteAllFiles(new File(androidContext(app), BOXNAME[finalNamePos])), BackpressureStrategy.BUFFER).subscribe();
+            namePos = 1 - namePos;
+            BoxStoreBuilder builder = MyObjectBox.builder().androidContext(app).name(BOXNAME[namePos]);
+            mBoxStore = builder.build();
+            SpHelper.getInstance(app).setInt("boxname", namePos);
+            Log.i(TAG, "Build " + BOXNAME[namePos] + " DB success");
+        }
     }
 
     public File androidContext(Context context) {

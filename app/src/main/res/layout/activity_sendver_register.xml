@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/new_247px"
         android:textSize="@dimen/new_66px"
-        android:text="重置登录密码"
+        android:text="注册"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="@dimen/new_137px"
         />

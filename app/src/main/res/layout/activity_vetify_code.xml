@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/white"
     >
 
     <include
@@ -111,7 +111,7 @@
         android:layout_marginRight="@dimen/new_137px"
         android:layout_marginLeft="@dimen/new_137px"
         />
-    <TextView
+   <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/btn_sure_vertify"
@@ -120,7 +120,7 @@
         android:text="没有收到验证码？"
         android:textColor="@color/theme_color_green"
         android:textSize="@dimen/new_48px"
-        android:layout_marginTop="@dimen/new_76px" />
+        android:layout_marginTop="@dimen/new_76px" />-->
    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
