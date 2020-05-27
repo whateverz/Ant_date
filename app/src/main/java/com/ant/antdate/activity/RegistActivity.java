@@ -74,7 +74,6 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
         super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
         if (reqId==1){
             if (httpResult.getCode()==1000){
-
                 goToActivity(SendVetifyCodeRegisterActivity.class,et_phone.getText().toString(),null);
             }else {
                 Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
@@ -82,6 +81,22 @@ public class RegistActivity extends BaseActivity implements View.OnClickListener
 
         }
     }
+
+    @Override
+    public <T> void onHttpErrorCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
+        super.onHttpErrorCallBack(resultType, reqId, resContent, reqObject, httpResult);
+        if (reqId==1){
+          if(httpResult.getCode()==1204){
+                Toast.makeText(this,"即将转入验证码登陆",Toast.LENGTH_LONG).show();
+                goToActivity(SendVetifyCodeLogoActivity.class);
+                LogicRequest.sendSMS(3,et_phone.getText().toString(), 2, getHttpHelper());
+            }else {
+                Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
+            }
+
+        }
+    }
+
     @Override
     public void onClick(View v) {
         super.onClick(v);

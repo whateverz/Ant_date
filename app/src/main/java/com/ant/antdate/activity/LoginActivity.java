@@ -111,6 +111,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 loginInfo = HttpResult.getResults(httpResult);
                 Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
                 goToActivity(MainActivity.class);
+            }else {
+                Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
             }
 
         }

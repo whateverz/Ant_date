@@ -6,13 +6,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.ant.antdate.R;
 import com.ant.antdate.base.BaseActivity;
+import com.ant.antdate.bean.LoginInfo;
 import com.ant.antdate.logic.LogicRequest;
 import com.ant.antdate.utils.Util;
 
+import lib.frame.module.http.HttpResult;
 import lib.frame.module.ui.BindView;
+import lib.frame.utils.Log;
 
 
 public class VtifyPhoneActivity extends BaseActivity {
@@ -66,6 +70,30 @@ public class VtifyPhoneActivity extends BaseActivity {
     }
 
     @Override
+    public <T> void onHttpErrorCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
+        super.onHttpErrorCallBack(resultType, reqId, resContent, reqObject, httpResult);
+        if (reqId==6){
+            Log.e("ZZZ",httpResult.getCode()+"");
+            if (httpResult.getCode()==1404){
+                Toast.makeText(this,"即将去注册",Toast.LENGTH_LONG).show();
+                LogicRequest.sendSMS(1,et_phone.getText().toString(), 1, getHttpHelper());
+                goToActivity(SendVetifyCodeRegisterActivity.class);
+
+            }
+
+        }
+    }
+
+    public <T> void onHttpCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
+        super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
+        if (reqId==6) {
+            if (httpResult.getCode() == 1000) {
+                Toast.makeText(this, httpResult.getMsg(), Toast.LENGTH_LONG).show();
+                goToActivity(SendVetifyCodeLogoActivity.class);
+            }
+        }
+    }
+    @Override
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()){
@@ -77,8 +105,8 @@ public class VtifyPhoneActivity extends BaseActivity {
                 break;
             case R.id.btn_next:
                 Util.writeIni(this,"phone",et_phone.getText().toString());
-                goToActivity(SendVetifyCodeLogoActivity.class);
-                LogicRequest.sendSMS(3,et_phone.getText().toString(), 2, getHttpHelper());
+
+                LogicRequest.sendSMS(6,et_phone.getText().toString(), 2, getHttpHelper());
                 break;
 
         }

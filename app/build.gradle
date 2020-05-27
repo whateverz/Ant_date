@@ -16,7 +16,8 @@ android {
         ndk {
             abiFilters "armeabi-v7a"
         }
-        buildConfigField("String", "HOST", "\"http://39.100.125.190:8080/\"")
+        buildConfigField("String", "HOST", "\"http://api.antdate.cn/\"")
+        //buildConfigField("String", "HOST", "\"http://api.antdate.cn/\"")
         buildConfigField("String", "QQ_APP_ID", "\"101793447\"")
     }
     buildTypes {
