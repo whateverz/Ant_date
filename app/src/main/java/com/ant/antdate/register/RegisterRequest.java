@@ -12,7 +12,7 @@ import lib.frame.module.http.HttpHelper;
 
 public class RegisterRequest {
     public static void Register(int reqId, String phone,String code,String psd, HttpHelper httpHelper) {
-        Map<String, String> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("phone", phone);
         map.put("code", code);
         map.put("password", psd);

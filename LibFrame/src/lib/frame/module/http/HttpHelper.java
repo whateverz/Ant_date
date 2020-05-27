@@ -91,19 +91,22 @@ public class HttpHelper {
 //        }
     }
 
-    public <T> void post(int reqId, String url, Map<String, String> map, Object object, boolean hint) {
+    public <T> void post(int reqId, String url, Map<String, Object> map, Object object, boolean hint) {
         post(reqId, url, map, object, hint, null);
     }
 
-    public <T> void post(int reqId, String url, Map<String, String> map, Object object, boolean hint,
+    public <T> void post(int reqId, String url, Map<String, Object> map, Object object, boolean hint,
                          TypeToken<T> token) {
         post(reqId, url, map, object, hint, null, token);
     }
 
-    public <T> void post(int reqId, String url, Map<String, String> map, Object object, boolean hint,
+    public <T> void post(int reqId, String url, Map<String, Object> map, Object object, boolean hint,
                          Headers.Builder builder, TypeToken<T> token) {
         post(reqId, url, new RequestParams(map), object, hint, builder, token);
     }
+
+
+
 
     public <T> void post(int reqId, String url, RequestParams params, Object object, boolean hint, TypeToken<T> token) {
         post(reqId, url, params, object, hint, null, token);

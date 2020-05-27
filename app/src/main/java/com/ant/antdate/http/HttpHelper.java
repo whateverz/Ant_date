@@ -22,7 +22,7 @@ public class HttpHelper extends lib.frame.module.http.HttpHelper {
     }
 
     @Override
-    public <T> void post(int reqId, String url, Map<String, String> map, Object object, boolean hint, Headers.Builder builder, TypeToken<T> token) {
+    public <T> void post(int reqId, String url, Map<String, Object> map, Object object, boolean hint, Headers.Builder builder, TypeToken<T> token) {
         url = BuildConfig.HOST + url;
         if (mAppBase.isLogin()) {
             if (builder == null)
