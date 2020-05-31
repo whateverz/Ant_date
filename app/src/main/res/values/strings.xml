@@ -11,6 +11,7 @@
     <string name="login_failed">"Login failed"</string>
 
 
+    <string name="app_name">蚂蚁捡友</string>
     <string name="message_notice">消息提醒</string>
     <string name="message_record">消息记录</string>
     <string name="pullset">推送设定</string>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:zhy="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/ic_"
+        layout="@layout/header_bar" />
+    <ScrollView
+        android:layout_below="@+id/ic_"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_below="@+id/ic_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mine"
+                android:text="基本信息"
+                android:textSize="18sp"
+                android:padding="@dimen/activity_horizontal_margin"
+                />
+
+            <LinearLayout
+                android:id="@+id/photo_linl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="头像"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:id="@+id/photo_little"
+                    android:layout_width="80dp"
+                    android:layout_height="64dp"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="20dp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/Hospital_linl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="真实姓名"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="迟依然"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/Keshi_linl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="昵称"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/keshi_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="哈哈哈"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/Zhiwu_linl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="年龄"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/yishi_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/qiangxiang_linl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="身高"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/qiangxiang_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="170cm"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/intro_linl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="体重"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/jianjie_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60kg"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_live"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="居住地"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/live_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="北京"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/ll_hujidi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="户籍地"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_huji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="河北邯郸"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/ll_married"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="婚姻状态"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_ifmarried"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="未婚"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/new_37px"
+                android:background="#e0e0e0" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mine"
+                android:text="受教育信息"
+                android:textSize="18sp"
+                android:padding="@dimen/activity_horizontal_margin"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_education"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="最高学历"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_education"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本科"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+            <LinearLayout
+                android:id="@+id/ll_school"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="毕业院校"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_school"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="北京大学"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:textColor="@color/mine"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_in"
+                    android:text="2019-1-1 12:1:10"
+                    android:textColor="#808080"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="#e0e0e0" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

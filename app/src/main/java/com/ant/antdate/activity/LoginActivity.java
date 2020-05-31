@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.ant.antdate.R;
 import com.ant.antdate.base.BaseActivity;
 import com.ant.antdate.bean.LoginInfo;
+import com.ant.antdate.bean.Userinfo;
 import com.ant.antdate.logic.LogicRequest;
 import com.ant.antdate.register.RegisterRequest;
 import com.ant.antdate.utils.Util;
@@ -47,6 +48,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     private String phone;
     private boolean passswitch;
+    private boolean isLogin;
     private LoginInfo loginInfo;
     @Override
     protected void setRootView() {
@@ -57,6 +59,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initView() {
         super.initView();
+        if (mApp.getUserInfo()!=null){
+            goToActivity(MainActivity.class);
+        }
         passswitch = false;
 
         btn_login.setOnClickListener(this::onClick);
@@ -99,6 +104,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void loadData() {
         super.loadData();
+
       //  RegisterRequest.Register(2, "13581714368", "1696", getHttpHelper());
     }
 
@@ -106,10 +112,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     public <T> void onHttpCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
         super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
         loginInfo = new LoginInfo();
+        Userinfo userinfo = new Userinfo();
         if (reqId==1){
             if (httpResult.getCode()==1000){
                 loginInfo = HttpResult.getResults(httpResult);
                 Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
+                mApp.setUserInfo(loginInfo.getUser());
+                Util.writeIni(this,"isLogin",true);
                 goToActivity(MainActivity.class);
             }else {
                 Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();

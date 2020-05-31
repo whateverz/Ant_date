@@ -11,9 +11,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/ThemeActivity"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".activity.ForgetPassActivity"></activity>
         <activity android:name=".activity.VetifyCodeActivity" />
         <activity android:name=".activity.MainActivity" />
@@ -24,9 +26,13 @@
         <activity android:name=".activity.SendVetifyCodeLogoActivity" />
         <activity android:name=".activity.SendVetifyCodeRegisterActivity" />
         <activity android:name=".activity.RegisterSetPassActivity" />
+        <activity android:name=".mine.SettingActivity" />
+        <activity android:name=".mine.ChangePersonalMessageActivity" />
+        <activity android:name=".mine.ChangeMinePassActivity" />
+        <activity android:name=".mine.AboutActivity" />
         <activity
             android:name=".activity.LoginActivity"
-            android:label="蚂蚁捡友"
+            android:label="@string/app_name"
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>

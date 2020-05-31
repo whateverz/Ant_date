@@ -5,7 +5,8 @@
     <color name="title_color">#555555</color>
 
     <color name="tv_alert">#FF6C66 </color>
-
+    <color name="mine">#333333 </color>
+    <color name="mine_id">#777777</color>
 
 
     <color name="theme_color_87a">#de000000</color>

@@ -63,7 +63,7 @@
         android:layout_marginRight="@dimen/new_137px"
         android:hint="请设置密码"
         android:inputType="textPassword"
-        android:maxLength="8"
+        android:maxLength="18"
         tools:ignore="MissingConstraints"
         android:background="@color/white"
         android:layout_marginLeft="@dimen/new_137px"

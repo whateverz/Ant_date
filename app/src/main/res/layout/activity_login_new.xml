@@ -134,7 +134,7 @@
         android:layout_marginTop="@dimen/new_939px"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="@dimen/new_137px"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:hint="请输入密码"
         android:textSize="@dimen/new_42px"
         tools:ignore="MissingConstraints"

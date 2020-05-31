@@ -1,9 +1,13 @@
 package com.ant.antdate.activity;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.res.ColorStateList;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -41,7 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void loadData() {
         super.loadData();
-       // LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
+        // LogicRequest.sendSMS(1, "13581714368", 1, getHttpHelper());
         //RegisterRequest.Register(2, "13581714368", "1696", getHttpHelper());
     }
 
@@ -85,44 +89,69 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-
     private void setPageStyle(int pageIndex) {
         tv_homePage.setTextColor(title_color);
         tv_myAccountPage.setTextColor(title_color);
         tv_zonePage.setTextColor(title_color);
 
         tv_homePage.setCompoundDrawablesWithIntrinsicBounds(0,
-                R.mipmap.default_photo, 0, 0);
+                R.mipmap.squre_no, 0, 0);
         tv_myAccountPage.setCompoundDrawablesWithIntrinsicBounds(0,
-                R.mipmap.default_photo, 0, 0);
+                R.mipmap.mail_list_no, 0, 0);
         tv_zonePage.setCompoundDrawablesWithIntrinsicBounds(0,
-                R.mipmap.default_photo, 0, 0);
+                R.mipmap.mine_no, 0, 0);
 
         switch (pageIndex) {
             case HOME_PAGE_INDEX:
                 titleName.setText("广场");
-              //  titleName.setText(getResources().getString(R.string.app_name));
+                //  titleName.setText(getResources().getString(R.string.app_name));
                 tv_homePage.setTextColor(theme_green);
                 tv_homePage.setCompoundDrawablesWithIntrinsicBounds(0,
-                        R.mipmap.me_head, 0, 0);
+                        R.mipmap.squre_checked, 0, 0);
                 break;
             case MY_ACCOUNT_PAGE_INDEX:
                 titleName.setText("通讯录");
-               // titleName.setText(getResources().getString(R.string.my_account));
+                // titleName.setText(getResources().getString(R.string.my_account));
                 tv_myAccountPage.setTextColor(theme_green);
                 tv_myAccountPage.setCompoundDrawablesWithIntrinsicBounds(0,
-                        R.mipmap.me_head, 0, 0);
+                        R.mipmap.maillist_checked, 0, 0);
                 break;
             case ZONE_PAGE_INDEX:
                 titleName.setText("我的");
                 //titleName.setText(getResources().getString(R.string.zone_page));
                 tv_zonePage.setTextColor(theme_green);
                 tv_zonePage.setCompoundDrawablesWithIntrinsicBounds(0,
-                        R.mipmap.me_head, 0, 0);
+                        R.mipmap.mine_checked, 0, 0);
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            new AlertDialog.Builder(this)
+                    .setMessage("确定退出系统吗？")
+                    .setNegativeButton("取消",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                }
+                            })
+                    .setPositiveButton("确定",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int whichButton) {
+                                    finish();
+                                }
+                            }).show();
+
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+
     }
 
     @Override

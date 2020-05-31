@@ -27,6 +27,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -109,6 +110,15 @@ public class StringUtils {
         if (isEmpty(phoneNum))
             return false;
         return qq.matcher(phoneNum).matches();
+    }
+    //
+    public static boolean isPassword(String password){
+        String regex="^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z~!@#$%^&*]{6,18}$";
+        Pattern p=Pattern.compile(regex);
+        Matcher m=p.matcher(password);
+        boolean isMatch=m.matches();
+      //  Log.i(TAG, "isPassword: 是否密码正则匹配"+isMatch);
+        return isMatch;
     }
 
     /**

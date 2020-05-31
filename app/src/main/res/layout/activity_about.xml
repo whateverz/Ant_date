@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <include
+        layout="@layout/header_bar" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/new_240px"
+        android:layout_height="@dimen/new_240px"
+        android:layout_marginTop="@dimen/new_307px"
+        android:src="@mipmap/app_icon"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/new_21px"
+        android:text="蚂蚁捡友"
+        android:textSize="@dimen/new_48px"
+        android:textColor="@color/title_color"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/version_linl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/new_306px"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="版本号"
+            android:textColor="@color/mine"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="v1.0.0.1"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:textColor="@color/mine"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#e0e0e0" />
+    <LinearLayout
+        android:id="@+id/stragy_linl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="服务协议"
+            android:textColor="@color/mine"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_stragety"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_in"
+            android:text="2019-1-1 12:1:10"
+            android:textColor="#808080"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#e0e0e0" />
+    <LinearLayout
+        android:id="@+id/Hospital_linl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="隐私政策"
+            android:textSize="18sp"
+            android:textColor="@color/mine"/>
+
+        <ImageView
+            android:id="@+id/iv_yinsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_in"
+            android:text="2019-1-1 12:1:10"
+            android:textColor="#808080"
+            android:textSize="16sp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/new_145px"
+        android:text="已经是最新版本"
+        android:textSize="@dimen/new_48px"
+        android:textColor="@color/theme_color_green"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/shuoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/new_245px"
+        android:text="蚂蚁捡友（北京）科技有限公司"
+        android:textSize="@dimen/new_30px"
+        android:textColor="@color/title_color"
+        tools:ignore="MissingConstraints" />
+</LinearLayout>

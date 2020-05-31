@@ -23,14 +23,15 @@ public class SendVetifyCodeRegisterActivity extends BaseActivity {
     TextView tv_loginby_user;
     @BindView(R.id.iv_back)
     ImageView iv_back;
-    @BindView (R.id.btn_next)
+    @BindView(R.id.btn_next)
     Button btn_next;
     @BindView(R.id.et_vertify)
     EditText et_vertify;
     @BindView(R.id.btn_timer)
     Button btn_timer;
     String verifycode;
-    private Timer timer ;
+    private Timer timer;
+
     @Override
     protected void setRootView() {
         super.setRootView();
@@ -41,20 +42,20 @@ public class SendVetifyCodeRegisterActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         countDown();
-       // tv_loginby_user.setVisibility(View.GONE);
+        // tv_loginby_user.setVisibility(View.GONE);
         btn_timer.setOnClickListener(this::onClick);
         iv_back.setOnClickListener(this::onClick);
         btn_next.setOnClickListener(this::onClick);
         et_vertify.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-              //  iv_delete.setVisibility(View.GONE);
+                //  iv_delete.setVisibility(View.GONE);
                 btn_next.setBackgroundResource((R.mipmap.bg_btn_login));
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-               // iv_delete.setVisibility(View.VISIBLE);
+                // iv_delete.setVisibility(View.VISIBLE);
 
             }
 
@@ -62,10 +63,10 @@ public class SendVetifyCodeRegisterActivity extends BaseActivity {
             public void afterTextChanged(Editable editable) {
                 verifycode = et_vertify.getText().toString();
 
-                if (verifycode.length()==4){
+                if (verifycode.length() == 4) {
                     btn_next.setEnabled(true);
                     btn_next.setBackgroundResource((R.mipmap.bg_canlogin));
-                }else {
+                } else {
                     btn_next.setEnabled(false);
                     btn_next.setBackgroundResource((R.mipmap.bg_btn_login));
                 }
@@ -77,10 +78,11 @@ public class SendVetifyCodeRegisterActivity extends BaseActivity {
     protected void loadData() {
         super.loadData();
     }
+
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
            /* case R.id.btn_login:
                 phone = et_phone.getText().toString();
                *//* Log.e("ZWX",phone.length()+"");
@@ -93,7 +95,7 @@ public class SendVetifyCodeRegisterActivity extends BaseActivity {
                 goToActivity(VetifyCodeActivity.class);
                 break;*/
             case R.id.btn_next:
-                Util.writeIni(this,"code",et_vertify.getText().toString());
+                Util.writeIni(this, "code", et_vertify.getText().toString());
                 goToActivity(RegisterSetPassActivity.class);
                 break;
             case R.id.iv_back:
@@ -101,11 +103,12 @@ public class SendVetifyCodeRegisterActivity extends BaseActivity {
                 break;
             case R.id.btn_timer:
                 countDown();
-                String phonenumber = Util.readIni(this,"phone","");
-                LogicRequest.sendSMS(3,phonenumber, 2, getHttpHelper());
+                String phonenumber = Util.readIni(this, "phone", "");
+                LogicRequest.sendSMS(3, phonenumber, 2, getHttpHelper());
                 break;
         }
     }
+
     /**
      * 倒计时显示
      */
@@ -115,7 +118,7 @@ public class SendVetifyCodeRegisterActivity extends BaseActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 btn_timer.setEnabled(false);
-                btn_timer.setText("重新发送" + millisUntilFinished / 1000 );
+                btn_timer.setText("重新发送" + millisUntilFinished / 1000);
             }
 
             @Override

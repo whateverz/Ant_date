@@ -27,8 +27,7 @@ public class HttpHelper extends lib.frame.module.http.HttpHelper {
         if (mAppBase.isLogin()) {
             if (builder == null)
                 builder = new Headers.Builder();
-            builder.add("Authorization", "Bearer " + token);
-            mAppBase.getUserInfo().getToken();
+            builder.add("Authorization", "Bearer " + mAppBase.getUserInfo().getToken());
         }
         super.postRequest(reqId, url, new Gson().toJson(map), object, hint, builder, token);
 

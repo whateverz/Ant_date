@@ -17,6 +17,7 @@ import com.ant.antdate.utils.Util;
 
 import lib.frame.module.http.HttpResult;
 import lib.frame.module.ui.BindView;
+import lib.frame.utils.StringUtils;
 
 
 public class RegisterSetPassActivity extends BaseActivity {
@@ -60,7 +61,7 @@ public class RegisterSetPassActivity extends BaseActivity {
             public void afterTextChanged(Editable editable) {
                 pass = et_pass.getText().toString();
 
-                if (pass.length()>=4){
+                if (pass.length()>=6){
                     btn_next.setEnabled(true);
                     btn_next.setBackgroundResource((R.mipmap.bg_canlogin));
                 }else {
@@ -88,6 +89,11 @@ public class RegisterSetPassActivity extends BaseActivity {
     }
 
     @Override
+    public <T> void onHttpErrorCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
+        super.onHttpErrorCallBack(resultType, reqId, resContent, reqObject, httpResult);
+    }
+
+    @Override
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()){
@@ -95,10 +101,15 @@ public class RegisterSetPassActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btn_next:
-                String phone = Util.readIni(this,"phone","");
-                String vertify = Util.readIni(this,"code","");
-                String psd = et_pass.getText().toString();
-                RegisterRequest.Register(2,phone,vertify,psd,getHttpHelper());
+                if (StringUtils.isPassword(et_pass.getText().toString())){
+                    String phone = Util.readIni(this,"phone","");
+                    String vertify = Util.readIni(this,"code","");
+                    String psd = et_pass.getText().toString();
+                    RegisterRequest.Register(2,phone,vertify,psd,getHttpHelper());
+                }else {
+                    Toast.makeText(this,"密码格式有误",Toast.LENGTH_LONG).show();
+                }
+
 
                 break;
             case R.id.iv_eyes:

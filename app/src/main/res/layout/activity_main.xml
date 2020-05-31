@@ -21,7 +21,8 @@
     <!-- 底部导航栏 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/new_149px"
+       android:layout_marginBottom="@dimen/new_10px"
         android:background="#FFFFFF"
         android:orientation="horizontal" >
 
@@ -31,12 +32,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
+            android:layout_marginTop="@dimen/new_24px"
             android:drawablePadding="3dip"
-            android:drawableTop="@mipmap/default_photo"
+            android:drawableTop="@mipmap/squre_no"
             android:gravity="center_horizontal"
             android:text="广场"
             android:textColor="@color/title_color"
-            android:textSize="16sp" />
+            android:textSize="@dimen/new_39px" />
 
         <TextView
             android:id="@+id/my_account_page"
@@ -45,11 +47,12 @@
             android:layout_weight="1"
             android:clickable="true"
             android:drawablePadding="3dip"
-            android:drawableTop="@mipmap/default_photo"
+           android:layout_marginTop="@dimen/new_24px"
+            android:drawableTop="@mipmap/mail_list_no"
             android:gravity="center_horizontal"
             android:text="通讯录"
             android:textColor="@color/title_color"
-            android:textSize="14sp" />
+            android:textSize="@dimen/new_39px"  />
 
         <TextView
             android:id="@+id/zone_page"
@@ -58,11 +61,12 @@
             android:layout_weight="1"
             android:clickable="true"
             android:drawablePadding="3dip"
-            android:drawableTop="@mipmap/default_photo"
+            android:layout_marginTop="@dimen/new_24px"
+            android:drawableTop="@mipmap/mine_no"
             android:gravity="center_horizontal"
             android:text="我的"
             android:textColor="@color/title_color"
-            android:textSize="14sp" />
+            android:textSize="@dimen/new_39px"  />
 
 
     </LinearLayout>

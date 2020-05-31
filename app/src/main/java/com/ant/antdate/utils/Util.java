@@ -26,20 +26,33 @@ public class Util {
     public static String iniName = "ini";
     //加载框变量
     public static ProgressDialog progressDialog;
+
     public static void writeIni(Context ctx, String name, String key, String val) {
         SharedPreferences sp = ctx.getSharedPreferences(name, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        if(val==null)val="";
+        if (val == null) val = "";
         editor.putString(key, val);
         editor.apply();
         editor.commit();
     }
 
+    public static void writeIni(Context ctx, String name, String key, boolean val) {
+        SharedPreferences sp = ctx.getSharedPreferences(name, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
 
+       editor.putBoolean(key,val);
+        editor.apply();
+        editor.commit();
+    }
     public static String readIni(Context ctx, String name, String key, String def) {
         SharedPreferences sp = ctx.getSharedPreferences(name, Context.MODE_PRIVATE);
         return sp.getString(key, def);
     }
+    public static boolean readIniboo(Context ctx, String name, String key, boolean def) {
+        SharedPreferences sp = ctx.getSharedPreferences(name, Context.MODE_PRIVATE);
+        return sp.getBoolean(key,def);
+    }
+
     public static void remove(Context ctx, String key) {
         SharedPreferences sp = ctx.getSharedPreferences(iniName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -47,6 +60,7 @@ public class Util {
         editor.apply();
         editor.commit();
     }
+
     public static void delete(Context ctx) {
         SharedPreferences sp = ctx.getSharedPreferences("name", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
@@ -57,37 +71,49 @@ public class Util {
     public static void writeIni(Context ctx, String key, String val) {
         writeIni(ctx, iniName, key, val);
     }
+
+    public static void writeIni(Context ctx, String key, boolean val) {
+        writeIni(ctx, iniName, key, val);
+    }
     public static void writeIniPass(Context ctx, String key, String val) {
         writeIniPass(ctx, "pass", key, val);
     }
+
     public static void writeIniPass(Context ctx, String name, String key, String val) {
         SharedPreferences sp = ctx.getSharedPreferences(name, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        if(val==null)val="";
+        if (val == null) val = "";
         editor.putString(key, val);
         editor.apply();
         editor.commit();
     }
+
     public static void writeIniName(Context ctx, String name, String key, String val) {
         SharedPreferences sp = ctx.getSharedPreferences(name, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        if(val==null)val="";
+        if (val == null) val = "";
         editor.putString(key, val);
         editor.apply();
         editor.commit();
     }
+
     public static String readIniImage(Context ctx, String key, String def) {
         return readIni(ctx, "name", key, def);
     }
+
     public static void writeIniImage(Context ctx, String key, String val) {
         writeIniPass(ctx, "name", key, val);
     }
+
     public static String readIni(Context ctx, String key, String def) {
         return readIni(ctx, iniName, key, def);
     }
-
+    public static boolean readIniboolen(Context ctx, String key, boolean def) {
+        boolean b = readIniboo(ctx, iniName, key, def);
+        return b;
+    }
     public static void log(String log) {
-        System.out.println("oglog:"+log);
+        System.out.println("oglog:" + log);
     }
 
     public static void redirect(Context ctx, Class next) {
@@ -96,37 +122,41 @@ public class Util {
 
     public static void redirect(Context ctx, Class next, Serializable obj) {
         Intent intent = new Intent(ctx, next);
-        if(obj!=null) intent.putExtra("data", obj);
+        if (obj != null) intent.putExtra("data", obj);
         ctx.startActivity(intent);
     }
+
     public static void redirect(Context ctx, Class next, Serializable obj, Serializable obj1) {
         Intent intent = new Intent(ctx, next);
-        if(obj!=null) intent.putExtra("data", obj);
+        if (obj != null) intent.putExtra("data", obj);
         ctx.startActivity(intent);
     }
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public static void isEditTextNull(Button btn, EditText editText1, EditText editText2, EditText editText3, Drawable drawable, Drawable drawable2){
-        if (editText1.getText().toString().length()==0||editText3.getText().toString().length()==0||editText2.getText().toString().length()==0){
+    public static void isEditTextNull(Button btn, EditText editText1, EditText editText2, EditText editText3, Drawable drawable, Drawable drawable2) {
+        if (editText1.getText().toString().length() == 0 || editText3.getText().toString().length() == 0 || editText2.getText().toString().length() == 0) {
             btn.setBackground(drawable2);
             btn.setEnabled(false);
-        }else {
+        } else {
 
             btn.setBackground(drawable);
             btn.setEnabled(true);
         }
 
     }
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public static void isEditTextNull(Button btn, EditText editText1, EditText editText2, Drawable drawable, Drawable drawable2){
-        if (editText1.getText().toString().length()==0||editText2.getText().toString().length()==0){
+    public static void isEditTextNull(Button btn, EditText editText1, EditText editText2, Drawable drawable, Drawable drawable2) {
+        if (editText1.getText().toString().length() == 0 || editText2.getText().toString().length() == 0) {
             btn.setBackground(drawable2);
             btn.setEnabled(false);
-        }else {
+        } else {
             btn.setEnabled(true);
             btn.setBackground(drawable);
         }
 
     }
+
     public static boolean isMobileNO(String mobileNums) {
         /**
          * 判断字符串是否符合手机号码格式
@@ -142,6 +172,7 @@ public class Util {
         else
             return mobileNums.matches(telRegex);
     }
+
     public static String getFilePath(Context context, String dir) {
         String directoryPath = "";
         if (MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {//判断外部存储是否可用
@@ -155,8 +186,10 @@ public class Util {
         }
         return directoryPath;
     }
+
     /**
      * 检测当的网络（WLAN、3G/2G）状态
+     *
      * @param context Context
      * @return true 表示网络可用
      */
@@ -165,11 +198,9 @@ public class Util {
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity != null) {
             NetworkInfo info = connectivity.getActiveNetworkInfo();
-            if (info != null && info.isConnected())
-            {
+            if (info != null && info.isConnected()) {
                 // 当前网络是连接的
-                if (info.getState() == NetworkInfo.State.CONNECTED)
-                {
+                if (info.getState() == NetworkInfo.State.CONNECTED) {
                     // 当前所连接的网络可用
                     return true;
                 }
@@ -179,7 +210,7 @@ public class Util {
     }
 
     public static String str(String str) {
-        return str==null?"":str;
+        return str == null ? "" : str;
     }
 
     public static void showProgressDialog(Context mContext, String text) {
@@ -187,8 +218,8 @@ public class Util {
             progressDialog = new ProgressDialog(mContext);
             progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         }
-        progressDialog.setMessage(text);	//设置内容
-       //progressDialog.setCancelable(false);//点击屏幕和按返回键都不能取消加载框
+        progressDialog.setMessage(text);    //设置内容
+        //progressDialog.setCancelable(false);//点击屏幕和按返回键都不能取消加载框
         progressDialog.show();
 
 
@@ -200,20 +231,22 @@ public class Util {
 
 
     }
-    public static String get_Number(String str){
 
-        str=str.trim();
-        String str2="";
-        if(str != null && !"".equals(str)){
-            for(int i=0;i<str.length();i++){
-                if(str.charAt(i)>=48 && str.charAt(i)<=57){
-                    str2+=str.charAt(i);
+    public static String get_Number(String str) {
+
+        str = str.trim();
+        String str2 = "";
+        if (str != null && !"".equals(str)) {
+            for (int i = 0; i < str.length(); i++) {
+                if (str.charAt(i) >= 48 && str.charAt(i) <= 57) {
+                    str2 += str.charAt(i);
                 }
             }
 
         }
         return str2;
     }
+
     public static String jstr(JSONObject json, String key) {
         try {
             return str(json.getString(key));

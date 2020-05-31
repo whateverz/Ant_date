@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/custom_title_panel"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/new_159px"
+        android:layout_height="@dimen/new_138px"
         android:background="@color/white"
         >
 
@@ -18,8 +18,9 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/new_48px"
             android:text="@string/app_name"
+            android:textStyle="bold"
             android:textColor="@color/title_color"
-            android:textSize="20sp" />
+            android:textSize="@dimen/new_76px" />
     </RelativeLayout>
 
 </FrameLayout>

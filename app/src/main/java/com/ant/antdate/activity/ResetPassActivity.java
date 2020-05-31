@@ -18,6 +18,7 @@ import com.ant.antdate.utils.Util;
 
 import lib.frame.module.http.HttpResult;
 import lib.frame.module.ui.BindView;
+import lib.frame.utils.StringUtils;
 
 
 public class ResetPassActivity extends BaseActivity {
@@ -74,6 +75,7 @@ public class ResetPassActivity extends BaseActivity {
     @Override
     public <T> void onHttpCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
         super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
+        if (reqId==2){
             if (httpResult.getCode()==1000){
                 goToActivity(MainActivity.class);
                 Toast.makeText(this,httpResult.getMsg(),Toast.LENGTH_LONG).show();
@@ -82,6 +84,20 @@ public class ResetPassActivity extends BaseActivity {
             }
         }
 
+        }
+
+    @Override
+    public <T> void onHttpErrorCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
+        super.onHttpErrorCallBack(resultType, reqId, resContent, reqObject, httpResult);
+        if (reqId==2){
+                String phone = Util.readIni(this,"phone","");
+                Toast.makeText(this,"即将去注册",Toast.LENGTH_LONG).show();
+                LogicRequest.sendSMS(1,phone, 1, getHttpHelper());
+                goToActivity(SendVetifyCodeRegisterActivity.class);
+
+        }
+
+    }
 
     @Override
     public void onClick(View v) {
@@ -91,10 +107,15 @@ public class ResetPassActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.btn_next:
-                String phone = Util.readIni(this,"phone","");
-                String vertify = Util.readIni(this,"code","");
-                String psd = et_pass.getText().toString();
-                LogicRequest.ResetPsd(2,phone,vertify,psd,getHttpHelper());
+                if (StringUtils.isPassword(et_pass.getText().toString())){
+                    String phone = Util.readIni(this,"phone","");
+                    String vertify = Util.readIni(this,"code","");
+                    String psd = et_pass.getText().toString();
+                    LogicRequest.ResetPsd(2,phone,vertify,psd,getHttpHelper());
+                }else {
+                    Toast.makeText(this,"密码格式有误",Toast.LENGTH_LONG).show();
+                }
+
 
                 break;
             case R.id.iv_eyes:

@@ -73,11 +73,20 @@ public class VtifyPhoneActivity extends BaseActivity {
     public <T> void onHttpErrorCallBack(int resultType, int reqId, String resContent, Object reqObject, HttpResult<T> httpResult) {
         super.onHttpErrorCallBack(resultType, reqId, resContent, reqObject, httpResult);
         if (reqId==6){
-            Log.e("ZZZ",httpResult.getCode()+"");
-            if (httpResult.getCode()==1404){
+            if (httpResult!=null){
+                if (httpResult.getCode()==1404){
+                    Toast.makeText(this,"即将去注册",Toast.LENGTH_LONG).show();
+                    LogicRequest.sendSMS(1,et_phone.getText().toString(), 1, getHttpHelper());
+                    goToActivity(SendVetifyCodeRegisterActivity.class);
+
+                }else {
+                    Toast.makeText(this,httpResult.getResults().toString(),Toast.LENGTH_LONG).show();
+                }
+            }else {
                 Toast.makeText(this,"即将去注册",Toast.LENGTH_LONG).show();
                 LogicRequest.sendSMS(1,et_phone.getText().toString(), 1, getHttpHelper());
                 goToActivity(SendVetifyCodeRegisterActivity.class);
+
 
             }
 

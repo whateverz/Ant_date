@@ -80,9 +80,7 @@ public class App extends AppBase {
                 LogicDB.getBox(Userinfo.class).put(mUserInfo);
 //                MobclickAgent.onProfileSignIn(mUserInfo.getNickName());
 //                CrashReport.setUserId(mUserInfo.getNickName());
-
                 e.onNext(mUserInfo);
-
             }, BackpressureStrategy.BUFFER)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

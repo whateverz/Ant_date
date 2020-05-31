@@ -1,0 +1,13 @@
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--高度40-->
+    <size android:height="@dimen/new_63px"/>
+    <size android:width="@dimen/new_99px"/>
+    <!--圆角弧度20-->
+    <corners android:radius="15dp"/>
+    <!--变化率-->
+    <gradient
+        android:endColor="#00AC38"
+        android:startColor="#00AC38"/>
+</shape>
