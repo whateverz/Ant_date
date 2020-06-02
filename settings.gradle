@@ -1,3 +1,4 @@
 rootProject.name='AntDate'
 include ':app'
 include ':LibFrame'
+include ':magicindicator'
