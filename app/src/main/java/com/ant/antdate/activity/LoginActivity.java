@@ -104,7 +104,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void loadData() {
         super.loadData();
-
       //  RegisterRequest.Register(2, "13581714368", "1696", getHttpHelper());
     }
 

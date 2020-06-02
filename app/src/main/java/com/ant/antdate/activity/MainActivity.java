@@ -6,9 +6,11 @@ import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,12 +30,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final int MORE_PAGE_INDEX = 3;
     private FragmentManager fm;
     private BaseFragment[] listFragments;
-    private String[] tabArray = {"广场", "通讯录", "我的"};
+    private String[] tabArray = {"Ant date", "通讯录", "我的"};
     private int index = 0;
     private ColorStateList title_color;
     private ColorStateList theme_green;
     private TextView titleName;
     private TextView tv_homePage, tv_myAccountPage, tv_zonePage;
+    private AppCompatEditText search_keyword;
 
     @Override
     protected void setRootView() {
@@ -52,6 +55,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initView() {
         super.initView();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        search_keyword = findViewById(R.id.search_keyword);
+        search_keyword.setVisibility(View.VISIBLE);
         // TODO Auto-generated method stub
         // 先初始化变量、控件并设置点击事件监听
         title_color = getResources().getColorStateList(R.color.title_color);
@@ -103,7 +109,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         switch (pageIndex) {
             case HOME_PAGE_INDEX:
-                titleName.setText("广场");
+                titleName.setText("Ant date");
+                search_keyword = findViewById(R.id.search_keyword);
+                search_keyword.setVisibility(View.VISIBLE);
                 //  titleName.setText(getResources().getString(R.string.app_name));
                 tv_homePage.setTextColor(theme_green);
                 tv_homePage.setCompoundDrawablesWithIntrinsicBounds(0,
@@ -111,6 +119,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case MY_ACCOUNT_PAGE_INDEX:
                 titleName.setText("通讯录");
+                search_keyword = findViewById(R.id.search_keyword);
+                search_keyword.setVisibility(View.GONE);
                 // titleName.setText(getResources().getString(R.string.my_account));
                 tv_myAccountPage.setTextColor(theme_green);
                 tv_myAccountPage.setCompoundDrawablesWithIntrinsicBounds(0,
@@ -118,6 +128,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case ZONE_PAGE_INDEX:
                 titleName.setText("我的");
+                search_keyword = findViewById(R.id.search_keyword);
+                search_keyword.setVisibility(View.GONE);
                 //titleName.setText(getResources().getString(R.string.zone_page));
                 tv_zonePage.setTextColor(theme_green);
                 tv_zonePage.setCompoundDrawablesWithIntrinsicBounds(0,
@@ -172,6 +184,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
+
     // 该函数根据不同的索引值，去显示相应的Fragment
     private void showPageFragment(int pageIndex) {
         setPageStyle(pageIndex);

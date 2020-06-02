@@ -2,101 +2,120 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/new_55px"
+    android:background="@color/black_12per"
+    />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/new_54px"
         android:layout_marginRight="@dimen/new_54px"
+        android:layout_marginTop="@dimen/new_48px"
         android:gravity="center_vertical"
         android:orientation="horizontal">
+
         <ImageView
             android:id="@+id/iv_avatar"
-            android:src="@mipmap/default_photo"
             android:layout_width="@dimen/new_99px"
-            android:layout_height="@dimen/new_99px"/>
+            android:layout_height="@dimen/new_99px"
+            android:src="@mipmap/default_photo" />
+
         <TextView
-            android:layout_toRightOf="@+id/iv_avatar"
+            android:id="@+id/tv_nikename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/new_48px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="Testname"
-            />
+            android:layout_toRightOf="@+id/iv_avatar"
+            android:text="Testname" />
+
         <TextView
-            android:layout_toLeftOf="@+id/iv_share"
-            android:layout_marginRight="@dimen/new_42px"
+            android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textSize="@dimen/new_36px"
+            android:layout_marginRight="@dimen/new_42px"
+            android:layout_toLeftOf="@+id/iv_share"
             android:text="1分钟前"
-            />
+            android:textSize="@dimen/new_36px" />
+
         <ImageView
             android:id="@+id/iv_share"
-            android:layout_alignParentRight="true"
             android:layout_width="@dimen/new_48px"
             android:layout_height="@dimen/new_48px"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/default_photo"
-            />
+            android:src="@mipmap/icon_share" />
     </RelativeLayout>
-<RelativeLayout
-    android:layout_marginLeft="@dimen/new_174px"
-    android:layout_marginRight="@dimen/new_54px"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="初到北京 请多关照"
-        android:textColor="@color/mine"
-        android:textSize="@dimen/new_48px"
-        />
-    <TextView
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="IT互动"
-        android:textSize="@dimen/new_39px"/>
-</RelativeLayout>
+        android:layout_marginLeft="@dimen/new_174px"
+        android:layout_marginRight="@dimen/new_54px">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="初到北京 请多关照"
+            android:textColor="@color/mine"
+            android:textSize="@dimen/new_48px" />
+
+        <TextView
+            android:id="@+id/tv_bankuai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="IT互动"
+            android:textSize="@dimen/new_39px" />
+    </RelativeLayout>
+
     <GridView
         android:id="@+id/gv_image"
-        android:layout_marginLeft="@dimen/new_174px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3"/>
-    <RelativeLayout
-        android:layout_marginTop="@dimen/new_49px"
         android:layout_marginLeft="@dimen/new_174px"
-        android:layout_marginRight="@dimen/new_54px"
+        android:numColumns="3" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/new_62px">
+        android:layout_height="@dimen/new_62px"
+        android:layout_marginLeft="@dimen/new_174px"
+        android:layout_marginTop="@dimen/new_49px"
+        android:layout_marginBottom="@dimen/new_52px"
+        android:layout_marginRight="@dimen/new_54px">
+
         <TextView
             android:id="@+id/tv_on_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="61人在线"
-            />
+            android:drawablePadding="@dimen/new_18px"
+            android:drawableLeft="@mipmap/icon_online"
+            android:text="61人在线" />
+
         <TextView
             android:id="@+id/tv_number_see"
-            android:layout_toRightOf="@id/tv_on_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/new_100px"
             android:layout_centerVertical="true"
-            android:text="98人浏览"
-            />
+            android:layout_marginLeft="@dimen/new_100px"
+            android:drawablePadding="@dimen/new_18px"
+            android:drawableLeft="@mipmap/icon_see"
+            android:layout_toRightOf="@id/tv_on_line"
+            android:text="98人浏览" />
+
         <TextView
             android:id="@+id/tv_in_group"
-            android:layout_alignParentRight="true"
-            android:text="进入群聊 >"
-            android:layout_centerVertical="true"
-            android:textColor="@color/theme_color_green"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="进入群聊 >"
+            android:textColor="@color/theme_color_green" />
     </RelativeLayout>
 </LinearLayout>

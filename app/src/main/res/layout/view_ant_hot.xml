@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.youth.banner.Banner
+            android:id="@+id/banner_vp"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/new_54px"
+            android:layout_marginLeft="@dimen/new_54px"
+            android:layout_height="@dimen/new_360px"/>
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/news_linl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/new_114px"
+        android:layout_marginLeft="@dimen/new_54px"
+        android:layout_marginRight="@dimen/new_54px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="蚂蚁趣聊"
+           android:textColor="@color/title_color"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/icon_in"
+            android:drawablePadding="10dp"
+            android:text="更多"
+            android:textColor="@color/theme_color_green"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/news_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/negative_72px"
+        android:layout_marginRight="@dimen/new_54px"
+        android:layout_marginLeft="@dimen/new_54px"
+        android:splitMotionEvents="false"
+        />
+</LinearLayout>

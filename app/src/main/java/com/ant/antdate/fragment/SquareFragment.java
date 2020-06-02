@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ant.antdate.R;
-import com.ant.antdate.adapter.ExamplePagerAdapter;
-import com.ant.antdate.adapter.Top_Ten_Adapter;
 import com.ant.antdate.base.BaseFragment;
-import com.google.android.material.tabs.TabLayout;
+import com.ant.antdate.fragment.home.HotFragment;
+import com.ant.antdate.fragment.home.TopFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -35,29 +35,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import lib.frame.module.ui.BindView;
+import lib.frame.adapter.AdapterBaseFm;
+import lib.frame.base.BaseFrameFragment;
 
 public class SquareFragment extends BaseFragment {
 
     MagicIndicator magicIndicator;
 
-    private  ViewPager viewpager;
-    static final int NUM_ITEMS = 4;
-    private List<Fragment> fragmentList = new ArrayList<Fragment>();
-    private ArrayList<String> mTabs = new ArrayList<>();
-    private Top_Ten_Adapter top_ten_adapter;
+    private ViewPager viewpager;
     private static final String[] CHANNELS = new String[]{"TOP.10", "蚂蚁热区"};
     private List<String> mDataList = Arrays.asList(CHANNELS);
-    private ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
+
+    private AdapterBaseFm adapterBaseFm;
 
     private View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_squre,container,false);
+        view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_squre, container, false);
         viewpager = view.findViewById(R.id.viewpager);
-        magicIndicator = view. findViewById(R.id.magic_indicator);
-        viewpager.setAdapter(mExamplePagerAdapter);
+        magicIndicator = view.findViewById(R.id.magic_indicator);
+
+        adapterBaseFm = new AdapterBaseFm(mContext, getChildFragmentManager());
+        adapterBaseFm.setFragmentList(new BaseFrameFragment[]{new TopFragment(), new HotFragment()});
+        viewpager.setAdapter(adapterBaseFm);
         initMagicIndicator4();
 
         return view;
@@ -110,6 +112,7 @@ public class SquareFragment extends BaseFragment {
         });
         ViewPagerHelper.bind(magicIndicator, viewpager);
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub

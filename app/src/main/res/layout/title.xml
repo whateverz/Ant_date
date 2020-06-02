@@ -21,6 +21,27 @@
             android:textStyle="bold"
             android:textColor="@color/title_color"
             android:textSize="@dimen/new_76px" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/search_keyword"
+            android:layout_width="@dimen/new_340px"
+            android:layout_height="@dimen/new_82px"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/new_54px"
+            android:background="@drawable/back_search_defult"
+            android:drawableLeft="@mipmap/icon_search_small"
+            android:gravity="center_vertical"
+            android:imeOptions="actionSearch"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="text"
+            android:maxLines="1"
+            android:hint="搜索"
+            android:textColor="#9ea6ad"
+            android:paddingLeft="@dimen/new_82px"
+            android:textColorHint="#666666"
+            android:textSize="@dimen/new_36px" />
     </RelativeLayout>
 
 </FrameLayout>
