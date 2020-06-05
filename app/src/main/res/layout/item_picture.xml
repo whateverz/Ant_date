@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/img"
+    android:src="@mipmap/default_photo"
+    android:layout_width="@dimen/new_270px"
+    android:padding="@dimen/new_10px"
+    android:layout_height="@dimen/new_195px"/>
+</LinearLayout>

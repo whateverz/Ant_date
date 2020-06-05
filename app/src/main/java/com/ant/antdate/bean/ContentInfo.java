@@ -22,8 +22,18 @@ public class ContentInfo {
     private int topic_id;
     private int user_id;
     private String nickname;
+
+    public String getTheme_name() {
+        return theme_name;
+    }
+
+    public void setTheme_name(String theme_name) {
+        this.theme_name = theme_name;
+    }
+
+    private String theme_name;
     private String avatar;
-    private String created_time;
+    private String created_at;
     private String chat_id;
     private int online;
     private int views;
@@ -65,11 +75,11 @@ public class ContentInfo {
     }
 
     public String getCreated_time() {
-        return created_time;
+        return created_at;
     }
 
     public void setCreated_time(String created_time) {
-        this.created_time = created_time;
+        this.created_at = created_time;
     }
 
     public String getChat_id() {

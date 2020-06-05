@@ -36,8 +36,8 @@
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/new_42px"
             android:layout_toLeftOf="@+id/iv_share"
             android:text="1分钟前"
             android:textSize="@dimen/new_36px" />
@@ -62,7 +62,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="初到北京 请多关照"
-            android:layout_marginRight="@dimen/new_79px"
             android:textColor="@color/mine"
             android:textSize="@dimen/new_48px" />
 
@@ -71,19 +70,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="@dimen/new_79px"
             android:text="IT互动"
             android:textSize="@dimen/new_39px" />
     </RelativeLayout>
 
-    <GridView
-        android:id="@+id/gv_image"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/new_30px"
         android:layout_marginLeft="@dimen/new_174px"
+        android:layout_marginTop="@dimen/new_30px"
         android:layout_marginRight="@dimen/new_54px"
-        android:numColumns="3" />
+        >
+
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="163dp"
+            android:layout_height="190dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/txt_green_defult" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/icon_video_playback" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

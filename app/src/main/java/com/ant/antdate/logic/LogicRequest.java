@@ -1,6 +1,7 @@
 package com.ant.antdate.logic;
 
 import com.ant.antdate.base.Urls;
+import com.ant.antdate.bean.BannerInfo;
 import com.ant.antdate.bean.CommonListInfo;
 import com.ant.antdate.bean.ContentInfo;
 import com.ant.antdate.bean.LoginInfo;
@@ -69,6 +70,13 @@ public class LogicRequest {
     public static void ChangeUserMessage(int reqId, HttpHelper httpHelper) {
         Map<String, String> map = new HashMap<>();
         httpHelper.post(reqId, Urls.ChangeUserMessage, map, null, false, new TypeToken<HttpResult<Object>>() {
+        });
+    }
+
+    public static void Banners(int reqId, HttpHelper httpHelper) {
+        Map<String, String> map = new HashMap<>();
+       map.put("slot_id","1");
+        httpHelper.get(reqId, Urls.Banner, map, null, false, new TypeToken<HttpResult<BannerInfo>>() {
         });
     }
 }

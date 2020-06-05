@@ -9,4 +9,6 @@ public class Urls {
     public static final String TopTen = "topic/top";
     //修改用户信息
     public static final String ChangeUserMessage = "user/profile";
+    //banner
+    public static final String Banner = "ads";
 }
