@@ -1,6 +1,7 @@
 package com.ant.antdate.fragment.home;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -92,6 +93,7 @@ public class HotFragment extends BaseListFragment<ContentInfo> {
         super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
         if (reqId==2){
             List<BannerInfo> infos = (List<BannerInfo>) httpResult.getResults();
+            Log.e("ZZZ",infos.get(0).getBanner_image());
             vBanner.setList(infos);
         }
     }
@@ -112,6 +114,6 @@ public class HotFragment extends BaseListFragment<ContentInfo> {
     @Override
     protected void loadData(int page, HttpHelper httpHelper) {
         LogicRequest.Hotlist(1, httpHelper);
-        LogicRequest.Banners(2, httpHelper);
+        LogicRequest.Banners(2, getHttpHelper());
     }
 }

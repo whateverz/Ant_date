@@ -6,8 +6,8 @@ public class BannerInfo {
     /**
      * id : 1
      * slot_id : 1
-     * title : 热区广告1
-     * banner_image : https://antdate.oss-cn-beijing.aliyuncs.com/c42098c0-4263-4671-9a9d-a51394dbe033.jpg
+     * title : ad1
+     * banner_image : http://oss.antdate.cn/be53cc1d-d5e7-430f-8bcd-0ed803659a04.png?x-oss-process=image/interlace,1/resize,p_60/quality,q_75/format,jpeg
      * banner_link : https://www.zhihu.com/hot
      * target_type : 1
      * status : 1

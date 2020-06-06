@@ -9,6 +9,7 @@ import com.ant.antdate.bean.RegisterInfo;
 import com.ant.antdate.http.HttpResult;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import java.util.Map;
 import lib.frame.module.http.HttpHelper;
 
 public class LogicRequest {
+    private ArrayList<BannerInfo> infos;
     public static void sendSMS(int reqId, String phone, int userType, HttpHelper httpHelper) {
         Map<String, String> map = new HashMap<>();
         map.put("phone", phone);
@@ -76,7 +78,7 @@ public class LogicRequest {
     public static void Banners(int reqId, HttpHelper httpHelper) {
         Map<String, String> map = new HashMap<>();
        map.put("slot_id","1");
-        httpHelper.get(reqId, Urls.Banner, map, null, false, new TypeToken<HttpResult<BannerInfo>>() {
+        httpHelper.get(reqId, Urls.Banner, map, null, false, new TypeToken<HttpResult<List<BannerInfo>>>() {
         });
     }
 }

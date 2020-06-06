@@ -24,7 +24,7 @@ public class MailListFragment extends BaseFragment {
 
         view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_maillist,container,false);
         iv = view.findViewById(R.id.iv);
-        Glide.with(this).load("http://oss.antdate.cn/v2-f8db7402dfcb8dd9cb993273370ea7ef.jpg").placeholder(R.mipmap.default_photo).into(iv);
+        Glide.with(this).load("https://oss.antdate.cn/be53cc1d-d5e7-430f-8bcd-0ed803659a04.png?x-oss-process=image/interlace,1/resize,p_60/quality,q_75/format,jpeg").placeholder(R.mipmap.default_photo).into(iv);
         return view;
     }
 
@@ -38,6 +38,6 @@ public class MailListFragment extends BaseFragment {
     @Override
     protected void initView() {
         super.initView();
-        Glide.with(getActivity()).load("http://oss.antdate.cn/v2-f8db7402dfcb8dd9cb993273370ea7ef.jpg").placeholder(R.mipmap.default_photo).into(iv);
+        Glide.with(getActivity()).load("http://oss.antdate.cn/v2-f8db7402dfcb8dd9cb993273370ea7ef.jpeg").placeholder(R.mipmap.default_photo).into(iv);
     }
 }
