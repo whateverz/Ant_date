@@ -45,13 +45,11 @@ public class ViedeoActivity extends BaseActivity implements View.OnClickListener
     public void handleObject(String tag, Object... objects) {
         super.handleObject(tag, objects);
         JCVideoPlayerStandard player = findViewById(R.id.player_list_video);
-        if (tag=="imageurl"){
+        boolean setUp = player.setUp(objects.toString(), JCVideoPlayer.SCREEN_LAYOUT_LIST, "");
+        if (setUp){
             Glide.with(ViedeoActivity.this).load(objects.toString()).into(player.thumbImageView);
         }
-      /*  boolean setUp = player.setUp("http://gslb.miaopai.com/stream/ed5HCfnhovu3tyIQAiv60Q__.mp4", JCVideoPlayer.SCREEN_LAYOUT_LIST, "");
-        if (setUp) {
 
-        }*/
     }
 
     @Override

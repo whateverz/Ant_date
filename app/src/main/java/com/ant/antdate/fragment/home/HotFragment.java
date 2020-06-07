@@ -82,9 +82,9 @@ public class HotFragment extends BaseListFragment<ContentInfo> {
     @Override
     protected void initList(WgList<ContentInfo> list) {
         vBanner = new BlockBanner(mContext);
-        vBanner.setPadding(getResources().getDimensionPixelOffset(R.dimen.new_54px),getResources().getDimensionPixelOffset(R.dimen.new_36px),getResources().getDimensionPixelOffset(R.dimen.new_54px),getResources().getDimensionPixelOffset(R.dimen.new_36px));
+        vBanner.setPadding(0,getResources().getDimensionPixelOffset(R.dimen.new_36px),0,getResources().getDimensionPixelOffset(R.dimen.new_36px));
         UIHelper.setView(vBanner, ViewGroup.LayoutParams.MATCH_PARENT, getResources().getDimensionPixelOffset(R.dimen.new_360px));
-
+        vBanner.startTurning(3000);
         vList.addHeader(vBanner);
     }
 
