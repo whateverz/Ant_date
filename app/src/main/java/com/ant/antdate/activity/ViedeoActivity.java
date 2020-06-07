@@ -45,7 +45,7 @@ public class ViedeoActivity extends BaseActivity implements View.OnClickListener
     public void handleObject(String tag, Object... objects) {
         super.handleObject(tag, objects);
         JCVideoPlayerStandard player = findViewById(R.id.player_list_video);
-        boolean setUp = player.setUp(objects.toString(), JCVideoPlayer.SCREEN_LAYOUT_LIST, "");
+        boolean setUp = player.setUp("http://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200f970000brbphmo697ajt2iob93g", JCVideoPlayer.SCREEN_LAYOUT_LIST, "");
         if (setUp){
             Glide.with(ViedeoActivity.this).load(objects.toString()).into(player.thumbImageView);
         }
