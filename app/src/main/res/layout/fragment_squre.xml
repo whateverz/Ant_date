@@ -18,14 +18,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="120dp"
-        app:elevation="6dp"
+       android:layout_marginRight="@dimen/new_120px"
+        android:layout_marginBottom="@dimen/new_170px"
+        android:elevation="6dp"
         android:clickable="true"
         android:backgroundTint="@color/fabbg"
         app:borderWidth="0dp"
         app:rippleColor="#0097a7"
-        android:src="@mipmap/default_photo" />
+        android:src="@mipmap/topic_write" />
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_below="@+id/magic_indicator"

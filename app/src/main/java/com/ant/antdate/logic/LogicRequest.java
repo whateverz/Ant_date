@@ -6,6 +6,7 @@ import com.ant.antdate.bean.CommonListInfo;
 import com.ant.antdate.bean.ContentInfo;
 import com.ant.antdate.bean.LoginInfo;
 import com.ant.antdate.bean.RegisterInfo;
+import com.ant.antdate.bean.ThemesInfo;
 import com.ant.antdate.http.HttpResult;
 import com.google.gson.reflect.TypeToken;
 
@@ -79,6 +80,11 @@ public class LogicRequest {
         Map<String, String> map = new HashMap<>();
        map.put("slot_id","1");
         httpHelper.get(reqId, Urls.Banner, map, null, false, new TypeToken<HttpResult<List<BannerInfo>>>() {
+        });
+    }
+    public static void Themes(int reqId, HttpHelper httpHelper) {
+        Map<String, String> map = new HashMap<>();
+        httpHelper.get(reqId, Urls.Themes, map, null, false, new TypeToken<HttpResult<List<ThemesInfo>>>() {
         });
     }
 }

@@ -93,7 +93,6 @@ public class HotFragment extends BaseListFragment<ContentInfo> {
         super.onHttpCallBack(resultType, reqId, resContent, reqObject, httpResult);
         if (reqId==2){
             List<BannerInfo> infos = (List<BannerInfo>) httpResult.getResults();
-            Log.e("ZZZ",infos.get(0).getBanner_image());
             vBanner.setList(infos);
         }
     }

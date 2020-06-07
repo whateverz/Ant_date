@@ -3,10 +3,12 @@ package com.ant.antdate.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,9 +23,22 @@ import com.ant.antdate.fragment.MailListFragment;
 import com.ant.antdate.fragment.MineFragment;
 import com.ant.antdate.fragment.SquareFragment;
 import com.ant.antdate.logic.LogicRequest;
+import com.ant.antdate.mine.ChangeMinePassActivity;
 import com.ant.antdate.register.RegisterRequest;
+import com.ant.antdate.topic.LongtopicActivity;
+import com.ant.antdate.topic.ShorttopicActivity;
+
+import lib.frame.module.ui.BindView;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
+    @BindView(R.id.btn_close)
+    TextView btn_close;
+    @BindView(R.id.btn_short)
+    TextView btn_short;
+    @BindView(R.id.btn_long)
+    TextView btn_long;
+    @BindView(R.id.rl_topic)
+    RelativeLayout rl_topic;
     public static final int HOME_PAGE_INDEX = 0;
     public static final int MY_ACCOUNT_PAGE_INDEX = 1;
     public static final int ZONE_PAGE_INDEX = 2;
@@ -37,7 +52,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView titleName;
     private TextView tv_homePage, tv_myAccountPage, tv_zonePage;
     private AppCompatEditText search_keyword;
-
+    private String tg;
     @Override
     protected void setRootView() {
         super.setRootView();
@@ -58,6 +73,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         search_keyword = findViewById(R.id.search_keyword);
         search_keyword.setVisibility(View.VISIBLE);
+        btn_close.setOnClickListener(this::onClick);
+        btn_short.setOnClickListener(this::onClick);
+        btn_long.setOnClickListener(this::onClick);
         // TODO Auto-generated method stub
         // 先初始化变量、控件并设置点击事件监听
         title_color = getResources().getColorStateList(R.color.title_color);
@@ -180,6 +198,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.zone_page:
                 showPageFragment(ZONE_PAGE_INDEX);
                 break;
+            case R.id.btn_close:
+                rl_topic.setVisibility(View.GONE);
+                break;
+            case R.id.btn_long:
+                //长话题
+                tg = "long";
+                Intent intent = new Intent();
+                intent.setClass(this, LongtopicActivity.class);
+                intent.putExtra("key", tg);
+                startActivity(intent);
+            case R.id.btn_short:
+                //长话题
+                tg = "short";
+                Intent intent1 = new Intent();
+                intent1.setClass(this, LongtopicActivity.class);
+                intent1.putExtra("key", tg);
+                startActivity(intent1);
             default:
                 break;
         }

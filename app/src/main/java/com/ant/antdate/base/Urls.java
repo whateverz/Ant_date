@@ -11,4 +11,5 @@ public class Urls {
     public static final String ChangeUserMessage = "user/profile";
     //banner
     public static final String Banner = "ads";
+    public static final String Themes = "themes";
 }

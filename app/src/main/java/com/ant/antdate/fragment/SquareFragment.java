@@ -18,6 +18,7 @@ import com.ant.antdate.R;
 import com.ant.antdate.base.BaseFragment;
 import com.ant.antdate.fragment.home.HotFragment;
 import com.ant.antdate.fragment.home.TopFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -38,7 +39,7 @@ import java.util.List;
 import lib.frame.adapter.AdapterBaseFm;
 import lib.frame.base.BaseFrameFragment;
 
-public class SquareFragment extends BaseFragment {
+public class SquareFragment extends BaseFragment implements View.OnClickListener {
 
     MagicIndicator magicIndicator;
 
@@ -47,7 +48,7 @@ public class SquareFragment extends BaseFragment {
     private List<String> mDataList = Arrays.asList(CHANNELS);
 
     private AdapterBaseFm adapterBaseFm;
-
+    private FloatingActionButton fab;
     private View view;
 
     @Override
@@ -56,12 +57,12 @@ public class SquareFragment extends BaseFragment {
         view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_squre, container, false);
         viewpager = view.findViewById(R.id.viewpager);
         magicIndicator = view.findViewById(R.id.magic_indicator);
-
+        fab = view.findViewById(R.id.fab);
         adapterBaseFm = new AdapterBaseFm(mContext, getChildFragmentManager());
         adapterBaseFm.setFragmentList(new BaseFrameFragment[]{new TopFragment(), new HotFragment()});
         viewpager.setAdapter(adapterBaseFm);
         initMagicIndicator4();
-
+        fab.setOnClickListener(this);
         return view;
     }
 
@@ -118,5 +119,16 @@ public class SquareFragment extends BaseFragment {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         Toast.makeText(getActivity(), "广场", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.fab:
+                getActivity().findViewById(R.id.rl_topic).setVisibility(View.VISIBLE);
+                break;
+        }
+
     }
 }
